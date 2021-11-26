@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Sinovac",
+        "description": "Vaksin Sinovac adalah vaksin untuk mencegah infeksi virus SARS-CoV-2 atau COVID-19. Vaksin Sinovac yang dikenal juga dengan nama CoronaVac sudah mendapat izin penggunaan darurat dari Badan Pengawas Obat dan Makanan (BPOM) RI.\\nCoronaVac merupakan vaksin yang mengandung virus SARS-CoV-2 yang sudah tidak aktif. Penyuntikan vaksin Sinovac akan memicu sistem kekebalan tubuh untuk mengenali virus yang sudah tidak aktif ini dan memproduksi antibodi untuk melawannya sehingga tidak terjadi infeksi COVID-19.\\nVaksin Sinovac dapat diberikan kepada ibu hamil dan menyusui. Untuk ibu hamil, pemberiannya dapat dimulai dari usia kehamilan di atas 12 minggu dan paling lambat usia kehamilan 33 minggu.",
+        "effects": "Beberapa efek samping yang bisa terjadi setelah menerima vaksin Sinovac adalah nyeri, kemerahan, atau bengkak di tempat bekas suntikan, demam, badan terasa lelah, nyeri otot, sakit kepala, mual, dan muntah.",
+        "picture_url": "https://gallery.poskota.co.id/storage/Foto/g.jpeg"
+    },
+    {
+        "id": 2,
+        "name": "Sinopharm",
+        "description": "Vaksin Sinopharm adalah vaksin untuk mencegah infeksi virus Corona atau COVID-19. Vaksin Sinopharm ini direncanakan menjadi bagian dari vaksinasi mandiri atau vaksinasi gotong royong di Indonesia. Vaksin Sinopharm berisi virus Corona yang dimatikan (inactivated virus). Vaksin Sinopharm bekerja dengan cara memicu sistem kekebalan tubuh untuk menghasilkan antibodi yang dapat melawan virus Corona.\\nBelum ada data yang memadai terkait efektivitas dan keamanan vaksin Sinopharm pada ibu hamil dan ibu menyusui. Vaksin ini tidak boleh digunakan oleh ibu hamil dan ibu menyusui.",
+        "effects": "Berdasarkan analisis data uji klinis tahap 2, efek samping vaksin Sinopharm masuk dalam kategori ringan-sedang, tidak berbahaya, dan bisa pulih dengan cepat. Efek samping yang dapat terjadi setelah disuntik vaksin Sinopharm adalah nyeri dan kemerahan pada area yang disuntik, demam ringan, sakit kepala, dan rasa Lelah.",
+        "picture_url": "https://static.republika.co.id/uploads/images/inpicture_slide/007485600-1629365125-thumbs_b_c_279cc452257ae5a24b4.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Biofarma",
+        "description": "Vaksin yang diproduksi oleh PT Bio Farma ini berasal dari bahan baku vaksin yang secara bertahap telah dikirimkan oleh Sinovac. Vaksin ini memiliki bentuk sediaan vial 5 ml. Setiap vial berisi 10 dosis vaksin yang berasal dari virus yang di-inaktivasi.",
+        "effects": "Memiliki efek samping yang sama dengan vaksin Sinovac, yaitu nyeri, kemerahan, atau bengkak di tempat bekas suntikan, demam, badan terasa lelah, nyeri otot, sakit kepala, mual, dan muntah.",
+        "picture_url": "https://www.biofarma.co.id/media/image/originals/post/2021/11/02/vaksin-covid-19-biofarma-5.jpg"
+    },
+    {
+        "id": 4,
+        "name": "AstraZeneca",
+        "description": "Vaksin AstraZeneca atau yang juga dikenal dengan Vaksin Oxford dikembangkan oleh perusahaan biofarmasi asal Inggris bersama beberapa peneliti dari Universitas Oxford. Jika vaksin Sinovac memanfaatkan virus Corona nonaktif untuk memicu antibodi, vaksin tipe AstraZeneca dengan metode yang lebih mutakhir memanfaatkan virus hasil modifikasi untuk membentuk antibodi. Penggunaan vaksin AstraZeneca dengan cara disuntikkan ke dalam otot sebanyak dua kali dalam jangka waktu 8 hingga 12 minggu, sesuai anjuran World Health Organization (WHO).",
+        "effects": "Efek samping yang disebabkan dari vaksin AstraZeneca ini adalah nyeri pada bagian bekas suntikan, sakit kepala, kelelahan, nyeri otot atau sendi, demam, panas dingin, dan mual.",
+        "picture_url": "https://static.dw.com/image/56874613_303.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Moderna",
+        "description": "Vaksin COVID-19 Moderna atau mRNA-1273 adalah sebuah vaksin COVID-19 yang dikembangkan oleh National Institute of Allergy and Infectious Diseases (NIAID), Biomedical Advanced Research and Development Authority (BARDA), dan Moderna.\\nVaksin Moderna merupakan jenis vaksin mRNA (messenger RNA). Vaksin ini tidak menggunakan virus yang dilemahkan atau dimatikan, melainkan menggunakan komponen materi genetik yang membuat sistem kekebalan tubuh memproduksi spike protein. Protein tersebut merupakan bagian dari permukaan virus Corona.\\nVaksin Moderna direkomendasikan untuk orang dengan usia 18 keatas. Keefektifan dan keamanan untuk orang dibawah 18 tahun belum dijamin. Vaksin Moderna dapat diberikan kepada ibu hamil dan menyusui.Untuk ibu hamiil, pemberiannya dapat dimulai dari usia kehamilan di atas 12 minggu dan paling lambat usia kehamilan 33 minggu.",
+        "effects": "Organisasi Kesehatan Dunia (WHO) menyatakan bahwa 'data keamanan mendukung profil keamanan yang menguntungkan' dan bahwa profil efek samping vaksin 'tidak mengindikasikan masalah keamanan khusus'. Efek samping yang paling umum adalah nyeri di tempat suntikan, kelelahan, sakit kepala, mialgia (nyeri otot), artralgia (nyeri sendi), panas dingin, demam, mual, dan muntah.",
+        "picture_url": "https://landinghomecare24.s3.ap-southeast-1.amazonaws.com/wp-content/uploads/2021/08/31195309/vaksin-moderna-2.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Pfizer",
+        "description": "Vaksin Pfizer atau BNT162b2 adalah vaksin untuk mencegah infeksi virus SARS-CoV-2 penyebab penyakit COVID-19. Vaksin Pfizer merupakan hasil kerja sama perusahaan bioteknologi Jerman, BioNTech dengan perusahaan farmasi asal Amerika, Pfizer. Vaksin ini mulai dikembangkan sejak tahun 2020.\\nVaksin Pfizer adalah vaksin mRNA (messenger RNA). Jenis vaksin ini akan memicu sistem sistem kekebalan tubuh membentuk spike protein, yang nantinya akan membantu tubuh membentuk antibodi yang dapat melawan virus Corona.\\nBerdasarkan uji klinis tahap III yang dilakukan di Amerika Serikat, Jerman, Turki, Afrika Selatan, Brazil, dan Argentina, vaksin Pfizer memiliki nilai efikasi, yaitu efek perlindungan terhadap COVID-19, sebesar 95%.\\nVaksin Pfizer dapat diberikan kepada ibu hamil dan menyusui.Untuk ibu hamiil, pemberiannya dapat dimulai dari usia kehamilan di atas 12 minggu dan paling lambat usia kehamilan 33 minggu. Dan direkomendasikan untuk orang dengan usia di atas 12 tahun.",
+        "effects": "Efek samping yang dapat terjadi setelah menggunakan vaksin Pfizer adalah nyeri kemerahan atau bengkak di tempat bekas suntikan, sakit kepala, nyeri otot atau sendi, menggigil, demam ringan, mual, dan bengkak di kelenjar getah bening.",
+        "picture_url": "https://gdb.voanews.com/3E8439CB-9EF0-48FF-90B2-A50E5CEE7760_cx0_cy3_cw0_w408_r1_s.jpg"
+    }
+]
