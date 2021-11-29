@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "name": "RSUD Dr. H. Abdul Moeloek",
+        "city": "Bandar Lampung",
+        "address": ": Jl. Dr. Rivai No.6, Penengahan, Kec. Tj. Karang Pusat, Kota Bandar Lampung, Lampung 35112",
+        "date": "9 Agu 2021 - 31 Mar 2022",
+        "time": "08:00 - 12:00",
+        "contact": "0721 - 703312",
+        "quota": 50,
+        "type": "Moderna, AstraZeneca",
+        "urlImage": "https://rsudam.lampungprov.go.id/uploads/xnew1.jpg.pagespeed.ic.B1Z5Bq-wWV.webp"
+    },
+    {
+        "id": 2,
+        "name": "Rumah Sakit Umum Al-Fauzan",
+        "city": "Jakarta Timur",
+        "address": ": Jalan Pedati No. 3 RT. 05 RW. 07 Kampung Tengah, Kramat Jati, Jakarta Timur, DKI Jakarta 13540",
+        "date": "14 Jun 2021 - 31 Mar 2022",
+        "time": "09:00 - 15:00",
+        "contact": "+6285161264545",
+        "quota": 85,
+        "type": "Pfizer, Sinovac, Moderna",
+        "urlImage": "https://assets.promediateknologi.com/crop/0x0:0x0/750x500/photo/ayojakarta/images/post/articles/2021/04/14/33452/172200119_121771919988865_3340475462979812165_n.jpg"
+    },
+    {
+        "id": 3,
+        "name": "RS Kanker Dharmais",
+        "city": "Jakarta Barat",
+        "address": "Jl. Letjen Jend Jl. Letjen S. Parman No.84-86, Kota Bambu Sel., Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11420",
+        "date": "8 Jul 2021 - 30 Mar 2022",
+        "time": "08:00 - 12:00",
+        "contact": "(021) 5681570",
+        "quota": 120,
+        "type": "Sinopharm, Pfizer",
+        "urlImage": "http://encyclopedia.jakarta-tourism.go.id/file/gallery/5673/68b4110390e84635c63e81c479b8a3852ab669b8.jpg"
+    },
+    {
+        "id": 4,
+        "name": "RS DKT Zainul Arifin",
+        "city": "Bengkulu",
+        "address": "Jl. Zainul Arifin No.27, Tim. Indah, Kec. Singaran Pati, Kota Bengkulu, Bengkulu 38225",
+        "date": "27 Jul 2021 - 31 Mar 2022",
+        "time": "09:00 - 16:00",
+        "contact": "0813-7945-2765",
+        "quota": 90,
+        "type": "Sinovac",
+        "urlImage": "https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/9442357666234/RS%2520DKT%2520Zainul%2520Arifin%2520Bengkulu-0519d71a-fa4f-4927-99c1-05124eb69758.jpeg?_src=imagekit&tr=dpr-2,c-at_max,h-400,q-60,w-720"
+    },
+    {
+        "id": 5,
+        "name": "Klinik Jasmine MQ Medika ",
+        "city": "Bandung",
+        "address": "Jl. Dayang Sumbi No.10, Lb. Siliwangi, Kecamatan Coblong, Kota Bandung, Jawa Barat 40132",
+        "date": "8 Sep 2021 - 31 Mar 2022",
+        "time": "08:00 - 21:00",
+        "contact": "081292342188",
+        "quota": 60,
+        "type": "Sinopharm, AstraZeneca",
+        "urlImage": "https://s3.theasianparent.com/tap-assets-prod/wp-content/uploads/sites/24/2020/04/mq-emdika.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Puskesmas Jatijajar",
+        "city": "Depok",
+        "address": "Estate, Jl. Perumahan Jatijajar Blk. C No.2, RW.11, Jatijajar, Kec. Tapos, Kota Depok, Jawa Barat 16451",
+        "date": "7 Sep 2021 - 31 Mar 2022",
+        "time": "09:00 - 16:00",
+        "contact": "(021) 8763417",
+        "quota": 200,
+        "type": "Moderna, Pfizer, Sinovac",
+        "urlImage": "https://berita.depok.go.id/upload/media/entries/2020-09/25/4081-0-6930d4797d6c6bbf8a423aa3ed18a4a4.jpg"
+    },
+    {
+        "id": 7,
+        "name": "RS UI Depok",
+        "city": "Depok",
+        "address": "Pondok Cina, Kecamatan Beji, Kota Depok, Jawa Barat 16424",
+        "date": "13 Sep 2021 - 31 Mar 2022",
+        "time": "08:00 - 15:00",
+        "contact": "(021) 50829292",
+        "quota": 85,
+        "type": "AstraZeneca, Pfizer",
+        "urlImage": "http://sehatnegeriku.kemkes.go.id/wp-content/uploads/2020/09/img_3148.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Puskesmas Mandiangin",
+        "city": "Bukittinggi",
+        "address": "Jl. Abdul Manan No.8, Campago Ipuh, Kec. Mandiangin Koto Selayan, Kota Bukittinggi, Sumatera Barat 26111",
+        "date": "9 Agu 2021 - 31 Mar 2022",
+        "time": "08:00 - 11:00",
+        "contact": "(0752) 21969",
+        "quota": 75,
+        "type": "Sinopharm",
+        "urlImage": "http://www.bukittinggikota.go.id/backend/img/berita/2d84a79f669a91b5a56ccf6d11ec35ac4.jpeg"
+    },
+    {
+        "id": 9,
+        "name": "Puskesmas Pegangsaan",
+        "city": "Jakarta Pusat",
+        "address": "Jl. Tambak No.28, RT.1/RW.6, Pegangsaan, Kec. Menteng, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10320",
+        "date": "2 Agu 2021 - 31 Mar 2022",
+        "time": "07:30 - 14:00",
+        "contact": "(021) 31934355",
+        "quota": 78,
+        "type": "Sinopharm, Moderna",
+        "urlImage": "https://d2rbodpj0xodc.cloudfront.net/stories/1011347746549925282/17d75ac1-f025-4d1b-8ec5-b5ff541ec23b.jpeg"
+    },
+    {
+        "id": 10,
+        "name": "RS Bhakti Wara",
+        "city": "Pangkal Pinang",
+        "address": "Jl. Solihin GP Kel. Gajah Mada No.180, Asam, Kec. Rangkui, Kota Pangkal Pinang, Kepulauan Bangka Belitung 33135, Indonesia",
+        "date": "16 Agu 2021 - 31 Mar 2022",
+        "time": "09:00 - 16:00",
+        "contact": "(0717) 422605",
+        "quota": 50,
+        "type": "Sinovar, Pfizer",
+        "urlImage": "https://img.inews.co.id/files/inews_new/2020/09/09/kondisi_rumah_sakit_bhakti_wara_pangkalpinang.jpeg"
+    }
+]
