@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class TypeVaccine {
   late int id;
   late String name;
@@ -13,11 +15,22 @@ class TypeVaccine {
     required this.pictureUrl,
   });
 
-  TypeVaccine.fromJson(Map<String, dynamic> typeVaccine) {
-    id = typeVaccine['id'];
-    name = typeVaccine['name'];
-    description = typeVaccine['description'];
-    effects = typeVaccine['effects'];
-    pictureUrl = typeVaccine['picture_url'];
+  factory TypeVaccine.fromJson(Map<String, dynamic> typeVaccine) {
+    return TypeVaccine(
+        id: typeVaccine['id'],
+        name: typeVaccine['name'],
+        description: typeVaccine['description'],
+        effects: typeVaccine['effects'],
+        pictureUrl: typeVaccine['picture_url'],
+    );
   }
+}
+
+List<TypeVaccine> parsedTypeVaccine (String? json) {
+  if (json ==  null) {
+    return [];
+  }
+
+  final List parsed = jsonDecode(json);
+  return parsed.map((json) => TypeVaccine.fromJson(json)).toList();
 }
