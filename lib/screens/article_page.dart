@@ -36,11 +36,14 @@ class ArticlePage extends StatelessWidget {
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(4),
-          child: Image.network(
-            article.urlToImage,
-            height: double.infinity,
-            width: 100,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: article.urlToImage,
+            child: Image.network(
+              article.urlToImage,
+              height: double.infinity,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         title: Text(
