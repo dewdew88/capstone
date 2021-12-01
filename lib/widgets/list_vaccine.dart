@@ -1,4 +1,5 @@
 import 'package:capstone/data/models/type_vaccine.dart';
+import 'package:capstone/type_vaccine_details_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,21 +14,20 @@ class ListVaccine extends StatelessWidget {
         final List<TypeVaccine> listVaccines = parsedTypeVaccine(snapshot.data);
         if (snapshot.hasData) {
           return GridView.builder(
-           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-               maxCrossAxisExtent: 200,
-             childAspectRatio: 5/2,
+           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+             crossAxisCount: 2,
+             childAspectRatio: 6/2,
            ),
            itemCount: listVaccines.length,
            itemBuilder: (context, index) {
              var vaccine = listVaccines[index];
               return Card(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 5.0, bottom: 8.0),
-                  child: ListTile(
+                color: Colors.grey,
+                child: ListTile(
                     leading: Image.network(
                       vaccine.pictureUrl,
                       width: 50,
-                      height: 50,
+                      height: 40,
                     ),
                     title: Text(
                       vaccine.name,
@@ -35,8 +35,10 @@ class ListVaccine extends StatelessWidget {
                           fontSize: 12,
                       ),
                     ),
+                    onTap: () {
+                      Navigator.pushNamed(context, TypeVaccineDetails.routeName, arguments: vaccine);
+                    },
                   ),
-                ),
               );
             }
           );

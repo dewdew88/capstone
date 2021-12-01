@@ -1,3 +1,6 @@
+import 'package:capstone/data/models/type_vaccine.dart';
+import 'package:capstone/type_vaccine_details_page.dart';
+import 'package:capstone/widgets/curve.dart';
 import 'package:capstone/widgets/list_vaccine.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +29,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        TypeVaccineDetails.routeName: (context) => TypeVaccineDetails(
+          vaccine: ModalRoute.of(context)?.settings.arguments as TypeVaccine),
+      },
     );
   }
 }
