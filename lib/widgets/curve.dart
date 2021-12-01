@@ -1,7 +1,8 @@
 import 'package:capstone/data/api/api_service.dart';
-import 'package:capstone/data/api_models/vaccination.dart';
+import 'package:capstone/provider/curve_provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class VaccinationCurve extends StatefulWidget {
   const VaccinationCurve({Key? key}) : super(key: key);
@@ -16,15 +17,16 @@ class _CurveState extends State<VaccinationCurve> {
     List<int> values1 = [];
     List<int> values2 = [];
 
-    return FutureBuilder(
-        future: ApiService().fetchVaccination(),
-        builder: (context, AsyncSnapshot<Vaccination> snapshot) {
-          if (!snapshot.hasData) {
+    return ChangeNotifierProvider(
+      create: (_) => CurveProvider(apiService: ApiService()),
+      child: Consumer<CurveProvider>(
+        builder: (context, state, _) {
+          if (state.vaccinationState == CurveState.loading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasData) {
-            for (int i = 0; i < snapshot.data!.harian.length; i++) {
-              values1.add(snapshot.data!.harian[i].jumlahKumVaksinasi1.value);
-              values2.add(snapshot.data!.harian[i].jumlahKumVaksinasi2.value);
+          } else if (state.vaccinationState == CurveState.hasData) {
+            for (int i = 0; i < state.vaccinationData.harian.length; i++) {
+              values1.add(state.vaccinationData.harian[i].jumlahKumVaksinasi1.value);
+              values2.add(state.vaccinationData.harian[i].jumlahKumVaksinasi2.value);
             }
             List<FlSpot> spots1 = values1.asMap().entries.map((e) {
               return FlSpot(e.key.toDouble(), e.value.toDouble());
@@ -102,10 +104,14 @@ class _CurveState extends State<VaccinationCurve> {
                 ),
               ),
             );
-          } else {
-            return Text('Error');
+          } else if (state.vaccinationState == CurveState.noData) {
+            return Text(state.message);
+          } else if (state.vaccinationState == CurveState.error) {
+            return const Text('Error');
           }
-        }
+          return const SizedBox(height: 1);
+        },
+      ),
     );
   }
 }
