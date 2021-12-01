@@ -92,7 +92,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.1.2"
-<<<<<<< HEAD
   fl_chart:
     dependency: "direct main"
     description:
@@ -100,8 +99,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.40.2"
-=======
->>>>>>> main
   flutter:
     dependency: "direct main"
     description: flutter
@@ -127,11 +124,7 @@ packages:
     source: hosted
     version: "2.1.0"
   http:
-<<<<<<< HEAD
     dependency: "direct main"
-=======
-    dependency: transitive
->>>>>>> main
     description:
       name: http
       url: "https://pub.dartlang.org"
