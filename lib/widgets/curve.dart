@@ -68,11 +68,22 @@ class _CurveState extends State<Curve> {
                               showTitles: true,
                             ),
                           ),
+                          axisTitleData: FlAxisTitleData(
+                              topTitle: AxisTitle(
+                                showTitle: true,
+                                titleText: 'Vaccination Curve',
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )
+                          ),
                           gridData: FlGridData(
                               show: true,
                               checkToShowVerticalLine: (double value) {
                                 return value == 1;
-                              }),
+                              }
+                          ),
                         ),
                       ),
                     ),
