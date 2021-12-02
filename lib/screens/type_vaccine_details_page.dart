@@ -22,46 +22,65 @@ class TypeVaccineDetails extends StatelessWidget {
                   child: Image.network(vaccine.pictureUrl),
                 ),
                 SafeArea(
-                  child: CircleAvatar(
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back_rounded),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_back_rounded),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-            _buildDetailsText(),
+            _buildDetailsText(context),
           ],
         ),
       ),
     );
   }
 
-  Padding _buildDetailsText() {
+  Padding _buildDetailsText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(vaccine.name),
+          Text(
+            vaccine.name,
+            style: Theme.of(context).textTheme.headline6,
+          ),
           const SizedBox(height: 10),
           const Text(
             'Deskripsi',
             style: TextStyle(
-                fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
           ),
-          Text(vaccine.description),
-          const SizedBox(height: 10),
+          const SizedBox(height: 5),
+          Text(
+            vaccine.description,
+            style: Theme.of(context).textTheme.bodyText2,
+            textAlign: TextAlign.justify,
+          ),
+          const SizedBox(height: 15),
           const Text(
             'Efek Samping',
             style: TextStyle(
-                fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
             ),
           ),
-          Text(vaccine.effects),
+          const SizedBox(height: 5),
+          Text(
+            vaccine.effects,
+            style: Theme.of(context).textTheme.bodyText2,
+            textAlign: TextAlign.justify,
+          ),
         ],
       ),
     );

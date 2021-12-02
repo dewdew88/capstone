@@ -1,6 +1,6 @@
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/home_page.dart';
-import 'package:capstone/screens/vaccine_page.dart';
+//import 'package:capstone/screens/vaccine_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> _listWidget = [
     HomePage(),
-    VaccinePage(),
+    //VaccinePage(),
     ArticlePage(),
   ];
 
@@ -24,10 +24,10 @@ class _MainPageState extends State<MainPage> {
       icon: Icon(Icons.home_outlined),
       label: 'Home',
     ),
-    BottomNavigationBarItem(
+    /*BottomNavigationBarItem(
       icon: Icon(Icons.map_outlined),
       label: 'Vaccine',
-    ),
+    ),*/
     BottomNavigationBarItem(
       icon: Icon(Icons.article_outlined),
       label: 'Article',
