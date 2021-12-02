@@ -17,9 +17,18 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SliderCarousel(),
+            const SizedBox(height: 8),
+            Text(
+              'Distribusi Vaksin',
+              style: Theme.of(context).textTheme.headline5,
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.95 * 0.75,
               child: const VaccinationCurve(),
+            ),
+            Text(
+              'Jenis Vaksin',
+              style: Theme.of(context).textTheme.headline5,
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
@@ -33,5 +42,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
 }

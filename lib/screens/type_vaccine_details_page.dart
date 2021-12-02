@@ -11,33 +11,35 @@ class TypeVaccineDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Stack(
-              children: [
-                Hero(
-                  tag: vaccine.pictureUrl,
-                  child: Image.network(vaccine.pictureUrl),
-                ),
-                SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CircleAvatar(
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_back_rounded),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Stack(
+                children: [
+                  Hero(
+                    tag: vaccine.pictureUrl,
+                    child: Image.network(vaccine.pictureUrl),
+                  ),
+                  SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_rounded),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            _buildDetailsText(context),
-          ],
+                ],
+              ),
+              _buildDetailsText(context),
+            ],
+          ),
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:capstone/data/models/type_vaccine.dart';
 import 'package:capstone/screens/type_vaccine_details_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ListVaccine extends StatelessWidget {
@@ -28,10 +27,14 @@ class ListVaccine extends StatelessWidget {
                       borderRadius: BorderRadius.circular(4.0),
                       child: Hero(
                         tag: vaccine.pictureUrl,
-                        child: Image.network(
-                          vaccine.pictureUrl,
-                          width: 50,
-                          height: 40,
+                        child: ClipRRect(
+                          child: Image.network(
+                            vaccine.pictureUrl,
+                            width: 40,
+                            height: 30,
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(3.0),
                         ),
                       ),
                     ),
