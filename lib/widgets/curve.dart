@@ -35,66 +35,112 @@ class VaccinationCurve extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadiusDirectional.circular(4),
-                  color: Colors.grey[350],
+                  color: Colors.grey[200],
                 ),
                 height: MediaQuery.of(context).size.width * 0.95 * 0.75,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: LineChart(
-                    LineChartData(
-                      lineBarsData: [
-                        LineChartBarData(
-                          spots: spots1,
-                          isCurved: true,
-                          barWidth: 3,
-                          belowBarData: BarAreaData(
-                            show: true,
-                            colors: [Colors.lightBlueAccent.withOpacity(0.5)],
-                          ),
-                          dotData: FlDotData(show: false),
-                        ),
-                        LineChartBarData(
-                            spots: spots2,
-                            isCurved: true,
-                            barWidth: 2,
-                            belowBarData: BarAreaData(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 6,
+                        child: LineChart(
+                          LineChartData(
+                            lineBarsData: [
+                              LineChartBarData(
+                                spots: spots1,
+                                isCurved: true,
+                                barWidth: 3,
+                                belowBarData: BarAreaData(
+                                  show: true,
+                                  colors: [Colors.lightBlueAccent.withOpacity(0.5)],
+                                ),
+                                dotData: FlDotData(show: false),
+                              ),
+                              LineChartBarData(
+                                  spots: spots2,
+                                  isCurved: true,
+                                  barWidth: 2,
+                                  belowBarData: BarAreaData(
+                                    show: true,
+                                    colors: [Colors.blueAccent.withOpacity(0.7)],
+                                  ),
+                                  dotData: FlDotData(show: false),
+                                  colors: [Colors.blue]),
+                            ],
+                            titlesData: FlTitlesData(
                               show: true,
-                              colors: [Colors.blueAccent.withOpacity(0.7)],
+                              bottomTitles: SideTitles(
+                                showTitles: false,
+                              ),
+                              rightTitles: SideTitles(
+                                showTitles: false,
+                              ),
+                              topTitles: SideTitles(
+                                showTitles: false,
+                              ),
+                              leftTitles: SideTitles(
+                                showTitles: true,
+                              ),
                             ),
-                            dotData: FlDotData(show: false),
-                            colors: [Colors.blue]),
-                      ],
-                      titlesData: FlTitlesData(
-                        show: true,
-                        bottomTitles: SideTitles(
-                          showTitles: false,
-                        ),
-                        rightTitles: SideTitles(
-                          showTitles: false,
-                        ),
-                        topTitles: SideTitles(
-                          showTitles: false,
-                        ),
-                        leftTitles: SideTitles(
-                          showTitles: true,
-                        ),
-                      ),
-                      axisTitleData: FlAxisTitleData(
-                        topTitle: AxisTitle(
-                          showTitle: true,
-                          titleText: 'Vaccination Curve',
-                          textStyle: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            axisTitleData: FlAxisTitleData(
+                              topTitle: AxisTitle(
+                                showTitle: true,
+                                titleText: 'Vaccination Curve',
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            gridData: FlGridData(
+                                show: true,
+                                checkToShowVerticalLine: (double value) {
+                                  return value == 1;
+                                }
+                            ),
                           ),
                         ),
                       ),
-                      gridData: FlGridData(
-                          show: true,
-                          checkToShowVerticalLine: (double value) {
-                            return value == 1;
-                          }),
-                    ),
+                      const SizedBox(height: 12,),
+                      Expanded(
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 10,
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: Colors.lightBlueAccent,
+                                      borderRadius: BorderRadiusDirectional.circular(2.0)),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text('First vaccination'),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 10,
+                                    height: 10,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadiusDirectional.circular(2.0),
+                                    ),
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text('Second vaccination'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
