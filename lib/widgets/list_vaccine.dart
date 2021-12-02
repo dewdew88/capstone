@@ -1,5 +1,5 @@
 import 'package:capstone/data/models/type_vaccine.dart';
-import 'package:capstone/type_vaccine_details_page.dart';
+import 'package:capstone/screens/type_vaccine_details_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -22,12 +22,18 @@ class ListVaccine extends StatelessWidget {
            itemBuilder: (context, index) {
              var vaccine = listVaccines[index];
               return Card(
-                color: Colors.grey,
+                color: Color(0xFFEBEDF5),
                 child: ListTile(
-                    leading: Image.network(
-                      vaccine.pictureUrl,
-                      width: 50,
-                      height: 40,
+                    leading: ClipRRect(
+                      borderRadius: BorderRadius.circular(4.0),
+                      child: Hero(
+                        tag: vaccine.pictureUrl,
+                        child: Image.network(
+                          vaccine.pictureUrl,
+                          width: 50,
+                          height: 40,
+                        ),
+                      ),
                     ),
                     title: Text(
                       vaccine.name,
