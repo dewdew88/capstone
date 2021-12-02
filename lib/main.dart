@@ -1,7 +1,3 @@
-import 'package:capstone/data/models/type_vaccine.dart';
-import 'package:capstone/type_vaccine_details_page.dart';
-import 'package:capstone/widgets/curve.dart';
-import 'package:capstone/widgets/list_vaccine.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,10 +24,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      routes: {
-        TypeVaccineDetails.routeName: (context) => TypeVaccineDetails(
-          vaccine: ModalRoute.of(context)?.settings.arguments as TypeVaccine),
-      },
     );
   }
 }
@@ -109,15 +100,45 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+=======
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PreferencesProvider(
+            preferencesHelper: PreferencesHelper(
+              sharedPreferences: SharedPreferences.getInstance(),
+>>>>>>> main
             ),
-          ],
+          ),
         ),
+      ],
+      child: Consumer<PreferencesProvider>(
+        builder: (context, provider, child) {
+          return MaterialApp(
+            initialRoute: MainPage.routeName,
+            theme: provider.themeData,
+            routes: {
+              MainPage.routeName: (context) => MainPage(),
+              ArticlePage.routeName: (context) => ArticlePage(),
+              ArticleDetailPage.routeName: (context) => ArticleDetailPage(
+                    article:
+                        ModalRoute.of(context)?.settings.arguments as Article,
+                  ),
+              ArticleWebView.routeName: (context) => ArticleWebView(
+                    url: ModalRoute.of(context)?.settings.arguments as String,
+                  ),
+            },
+          );
+        },
       ),
+<<<<<<< HEAD
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),*/ // This trailing comma makes auto-formatting nicer for build methods.
+=======
+>>>>>>> main
     );
   }
 }
