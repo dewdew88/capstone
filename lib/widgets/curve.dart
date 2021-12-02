@@ -1,12 +1,17 @@
 import 'package:capstone/data/api/api_service.dart';
+import 'package:capstone/provider/curve_provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/provider/curve_provider.dart';
 import 'package:provider/provider.dart';
 
-class VaccinationCurve extends StatelessWidget {
+class VaccinationCurve extends StatefulWidget {
   const VaccinationCurve({Key? key}) : super(key: key);
 
+  @override
+  _CurveState createState() => _CurveState();
+}
+
+class _CurveState extends State<VaccinationCurve> {
   @override
   Widget build(BuildContext context) {
     List<int> values1 = [];
@@ -35,112 +40,66 @@ class VaccinationCurve extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadiusDirectional.circular(4),
-                  color: Colors.grey[200],
+                  color: Colors.grey[350],
                 ),
                 height: MediaQuery.of(context).size.width * 0.95 * 0.75,
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 6,
-                        child: LineChart(
-                          LineChartData(
-                            lineBarsData: [
-                              LineChartBarData(
-                                spots: spots1,
-                                isCurved: true,
-                                barWidth: 3,
-                                belowBarData: BarAreaData(
-                                  show: true,
-                                  colors: [Colors.lightBlueAccent.withOpacity(0.5)],
-                                ),
-                                dotData: FlDotData(show: false),
-                              ),
-                              LineChartBarData(
-                                  spots: spots2,
-                                  isCurved: true,
-                                  barWidth: 2,
-                                  belowBarData: BarAreaData(
-                                    show: true,
-                                    colors: [Colors.blueAccent.withOpacity(0.7)],
-                                  ),
-                                  dotData: FlDotData(show: false),
-                                  colors: [Colors.blue]),
-                            ],
-                            titlesData: FlTitlesData(
+                  child: LineChart(
+                    LineChartData(
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: spots1,
+                          isCurved: true,
+                          barWidth: 3,
+                          belowBarData: BarAreaData(
+                            show: true,
+                            colors: [Colors.lightBlueAccent.withOpacity(0.5)],
+                          ),
+                          dotData: FlDotData(show: false),
+                        ),
+                        LineChartBarData(
+                            spots: spots2,
+                            isCurved: true,
+                            barWidth: 2,
+                            belowBarData: BarAreaData(
                               show: true,
-                              bottomTitles: SideTitles(
-                                showTitles: false,
-                              ),
-                              rightTitles: SideTitles(
-                                showTitles: false,
-                              ),
-                              topTitles: SideTitles(
-                                showTitles: false,
-                              ),
-                              leftTitles: SideTitles(
-                                showTitles: true,
-                              ),
+                              colors: [Colors.blueAccent.withOpacity(0.7)],
                             ),
-                            axisTitleData: FlAxisTitleData(
-                              topTitle: AxisTitle(
-                                showTitle: true,
-                                titleText: 'Vaccination Curve',
-                                textStyle: const TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            gridData: FlGridData(
-                                show: true,
-                                checkToShowVerticalLine: (double value) {
-                                  return value == 1;
-                                }
-                            ),
+                            dotData: FlDotData(show: false),
+                            colors: [Colors.blue]),
+                      ],
+                      titlesData: FlTitlesData(
+                        show: true,
+                        bottomTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        rightTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        topTitles: SideTitles(
+                          showTitles: false,
+                        ),
+                        leftTitles: SideTitles(
+                          showTitles: true,
+                        ),
+                      ),
+                      axisTitleData: FlAxisTitleData(
+                        topTitle: AxisTitle(
+                          showTitle: true,
+                          titleText: 'Vaccination Curve',
+                          textStyle: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      const SizedBox(height: 12,),
-                      Expanded(
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 10,
-                                    height: 10,
-                                    decoration: BoxDecoration(
-                                      color: Colors.lightBlueAccent,
-                                      borderRadius: BorderRadiusDirectional.circular(2.0)),
-                                  ),
-                                  const SizedBox(width: 5),
-                                  const Text('First vaccination'),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 10,
-                                    height: 10,
-                                    decoration: BoxDecoration(
-                                      color: Colors.blue,
-                                      borderRadius: BorderRadiusDirectional.circular(2.0),
-                                    ),
-                                  ),
-                                  const SizedBox(width: 5),
-                                  const Text('Second vaccination'),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      gridData: FlGridData(
+                          show: true,
+                          checkToShowVerticalLine: (double value) {
+                            return value == 1;
+                          }),
+                    ),
                   ),
                 ),
               ),
