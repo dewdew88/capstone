@@ -1,4 +1,4 @@
-import 'package:capstone/models/article.dart';
+import 'package:capstone/data/models/article.dart';
 import 'package:capstone/screens/article_detail_page.dart';
 import 'package:flutter/material.dart';
 

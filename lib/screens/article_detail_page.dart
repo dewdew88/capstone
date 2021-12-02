@@ -1,5 +1,5 @@
 import 'package:capstone/common/styles.dart';
-import 'package:capstone/models/article.dart';
+import 'package:capstone/data/models/article.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:flutter/material.dart';
 
