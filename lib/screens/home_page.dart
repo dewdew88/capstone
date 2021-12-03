@@ -30,11 +30,11 @@ class HomePage extends StatelessWidget {
               'Jenis Vaksin',
               style: Theme.of(context).textTheme.headline5,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: 180,
-                child: ListVaccine(),
+                height: MediaQuery.of(context).size.width * 0.95 * 0.52,
+                child: const ListVaccine(),
               ),
             ),
           ],
