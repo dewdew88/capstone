@@ -1,6 +1,6 @@
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/home_page.dart';
-//import 'package:capstone/screens/vaccine_page.dart';
+import 'package:capstone/screens/vaccines_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
