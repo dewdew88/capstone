@@ -1,6 +1,12 @@
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Registration extends StatefulWidget {
+  static const routeName = '/registration';
+
+  const Registration({Key? key}) : super(key: key);
+
   @override
   _RegistrationState createState() => _RegistrationState();
 }
@@ -16,51 +22,66 @@ class _RegistrationState extends State<Registration> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: const [
-              Text('Nama Lengkap'),
-              TextField(
+            children: <Widget>[
+              const Text('Nama Lengkap'),
+              const TextField(
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   hintText: 'Masukkan Nama Lengkap Anda'
                 ),
               ),
-              SizedBox(height: 5),
-              Text('Nomor Kependudukan'),
-              TextField(
+              const SizedBox(height: 5),
+              const Text('Nomor Kependudukan'),
+              const TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Masukkan Nama Lengkap Anda'
+                    hintText: 'Masukkan Nomor Kependudukan Anda'
                 ),
               ),
-              SizedBox(height: 5),
-              Text('Tempat Lahir'),
-              TextField(
+              const SizedBox(height: 5),
+              const Text('Tempat Lahir'),
+              const TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Masukkan Nama Lengkap Anda'
+                    hintText: 'Masukkan Tempat Lahir Anda'
                 ),
               ),
-              SizedBox(height: 5),
-              Text('Tanggal Lahir'),
-              SizedBox(height: 5),
-              Text('Nomor Telepon'),
-              TextField(
+              const SizedBox(height: 5),
+              const Text('Tanggal Lahir'),
+              const SizedBox(height: 5),
+              const Text('Nomor Telepon'),
+              const TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: 'Masukkan Nama Lengkap Anda'
+                    hintText: 'Masukkan Nomor Telepon Anda'
                 ),
               ),
-              SizedBox(height: 5),
-              Text('Nama Klinik'),
-              TextField(
+              const SizedBox(height: 5),
+              const Text('Nama Klinik'),
+              const TextField(
                 readOnly: true,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'Nama Klinik'
                 ),
               ),
-              SizedBox(height: 5),
-              Text('Tanggal Vaksinasi'),
+              const SizedBox(height: 5),
+              const Text('Tanggal Vaksinasi'),
+              DateTimeField(
+                format: DateFormat("dd/MM/yyyy"),
+                onShowPicker: (context, currentValue) {
+                  return showDatePicker(
+                      context: context,
+                      initialDate: currentValue ?? DateTime.now(),
+                      firstDate: DateTime(2021),
+                      lastDate: DateTime(2022)
+                  );
+                },
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  hintText: 'Masukkan Tanggal Vaksinasi Anda',
+                ),
+              ),
             ],
           ),
         ),

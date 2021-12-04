@@ -6,10 +6,9 @@ import 'package:capstone/screens/article_detail_page.dart';
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/main_page.dart';
 import 'package:capstone/screens/type_vaccine_details_page.dart';
+import 'package:capstone/screens/vaccination_registration_page.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
-// import 'package:capstone/screens/vaccine_detail_page.dart';
-// import 'package:capstone/screens/vaccine_page.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,11 +54,12 @@ class MyApp extends StatelessWidget {
               TypeVaccineDetails.routeName: (context) => TypeVaccineDetails(
                   vaccine: ModalRoute.of(context)?.settings.arguments
                       as TypeVaccine),
-              VaccinePage.routeName: (context) => VaccinePage(),
+              VaccinePage.routeName: (context) => const VaccinePage(),
               VaccineDetailPage.routeName: (context) => VaccineDetailPage(
                     vaccineLoc:
                         ModalRoute.of(context)?.settings.arguments as Vaccine,
-                  )
+                  ),
+              Registration.routeName: (context) => const Registration(),
             },
           );
         },
