@@ -75,9 +75,12 @@ class VaccinePage extends StatelessWidget {
                                 size: 18,
                               ),
                             ),
-                            Text(
-                              vaccineLoc.type,
-                              maxLines: 1,
+                            Flexible(
+                              child: Text(
+                                vaccineLoc.type,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             )
                           ],
                         ),
