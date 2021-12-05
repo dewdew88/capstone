@@ -7,32 +7,32 @@ class OnBoardingPage extends StatelessWidget {
   List<PageViewModel> listPages() {
     return [
       PageViewModel(
-        image: Image.asset('assets/undraw_High_five_re_jy71.png'),
-        title: 'Vaksinasi Covid-19',
+        image: Image.asset('assets/images/undraw_High_five_re_jy71.png'),
+        title: ('Vaksinasi Covid-19'),
         body:
             'Lindungi diri dan sekitar dengan mengikuti protokol kesehatan dan program vaksinasi Covid-19!',
         footer: Image.asset(
-          'assets/logo_vacare.png',
+          'assets/images/logo_vacare.png',
           height: 23,
         ),
       ),
       PageViewModel(
-        image: Image.asset('assets/undraw_medical_research_qg4d.png'),
+        image: Image.asset('assets/images/undraw_medical_research_qg4d.png'),
         title: 'Program Vaksinasi',
         body:
             'Temukan lokasi penyedia program vaksinasi Covid-19 dengan mudah!',
         footer: Image.asset(
-          'assets/logo_vacare.png',
+          'assets/images/logo_vacare.png',
           height: 23,
         ),
       ),
       PageViewModel(
-        image: Image.asset('assets/undraw_healthy_options_sdo3.png'),
+        image: Image.asset('assets/images/undraw_healthy_options_sdo3.png'),
         title: 'Informasi Vaksinasi',
         body:
             'Nikmati kemudahan mengakses informasi terkait vaksinasi Covid-19!',
         footer: Image.asset(
-          'assets/logo_vacare.png',
+          'assets/images/logo_vacare.png',
           height: 23,
         ),
       ),
@@ -45,9 +45,24 @@ class OnBoardingPage extends StatelessWidget {
       body: IntroductionScreen(
         skipFlex: 0,
         nextFlex: 0,
-        skip: Text('Skip'),
-        next: Icon(Icons.arrow_forward),
-        done: Text('Done'),
+        skip: Text(
+          'Skip',
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(color: secondaryColor),
+        ),
+        next: Icon(
+          Icons.arrow_forward,
+          color: secondaryColor,
+        ),
+        done: Text(
+          'Done',
+          style: Theme.of(context)
+              .textTheme
+              .bodyText1!
+              .copyWith(color: secondaryColor),
+        ),
         showSkipButton: true,
         showDoneButton: true,
         controlsMargin: EdgeInsets.all(16),
