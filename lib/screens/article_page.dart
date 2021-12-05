@@ -11,6 +11,7 @@ class ArticlePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Article'),
         centerTitle: true,
+        automaticallyImplyLeading: false
       ),
       body: FutureBuilder<String>(
         future:

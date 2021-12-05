@@ -14,6 +14,7 @@ class VaccinePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Vaccine Location'),
+        automaticallyImplyLeading: false
       ),
       body: FutureBuilder<String>(
         future:
