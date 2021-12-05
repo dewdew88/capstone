@@ -10,6 +10,7 @@ import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
 // import 'package:capstone/screens/vaccine_detail_page.dart';
 // import 'package:capstone/screens/vaccine_page.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,14 @@ class MyApp extends StatelessWidget {
         builder: (context, provider, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            initialRoute: MainPage.routeName,
+            home: AnimatedSplashScreen(
+              splash: Image.asset('assets/images/logo_vacare.png'),
+              nextScreen: OnBoardingPage(),
+              splashTransition: SplashTransition.rotationTransition,
+              centered: true,
+              backgroundColor: Colors.white,
+              duration: 3000,
+            ),
             theme: provider.themeData,
             routes: {
               MainPage.routeName: (context) => MainPage(),
