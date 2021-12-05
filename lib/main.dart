@@ -5,6 +5,7 @@ import 'package:capstone/provider/preferences_provider.dart';
 import 'package:capstone/screens/article_detail_page.dart';
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/main_page.dart';
+import 'package:capstone/screens/on_boarding_page.dart';
 import 'package:capstone/screens/type_vaccine_details_page.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
