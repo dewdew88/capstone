@@ -10,13 +10,15 @@ import 'package:capstone/screens/vaccination_registration_page.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
 import 'package:capstone/widgets/article_web_view.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'data/models/type_vaccine.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

@@ -1,6 +1,7 @@
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Registration extends StatefulWidget {
   static const routeName = '/registration';
@@ -186,7 +187,20 @@ class _RegistrationState extends State<Registration> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()){
+                        FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(_ktpController.text).doc(_nameController.text).set({
+                          'nama_lengkap': _nameController.text,
+                          'nomor_ktp': _ktpController.text,
+                          'tempat_lahir': _tempatLahirController.text,
+                          'tanggal_lahir': _tanggalLahirController.text,
+                          'nomor_telepon': _nomorTeleponController.text,
+                          'nama_klinik': 'nama klinik',
+                          'tanggal_vaksinasi': _tanggalVaksinasiController.text
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Submitted'))
+                        );
+                      }
                     });
                   },
                   child: const Text('Submit'),
