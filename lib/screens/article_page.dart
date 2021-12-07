@@ -8,11 +8,6 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Article'),
-        centerTitle: true,
-        automaticallyImplyLeading: false
-      ),
       body: FutureBuilder<String>(
         future:
             DefaultAssetBundle.of(context).loadString('assets/articles.json'),
