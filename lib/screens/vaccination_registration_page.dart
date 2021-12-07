@@ -58,12 +58,14 @@ class _RegistrationState extends State<Registration> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
+                const Text(
                   'Nama Lengkap',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
@@ -82,12 +84,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Nomor Kependudukan',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     controller: _ktpController,
@@ -105,12 +109,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Tempat Lahir',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: TextFormField(
                     textCapitalization: TextCapitalization.sentences,
                     keyboardType: TextInputType.text,
@@ -129,12 +135,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Tanggal Lahir',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: DateTimeField(
                     controller: _tanggalLahirController,
                     format: DateFormat('dd/MM/yyyy'),
@@ -160,12 +168,14 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Nomor Telepon',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: TextFormField(
                     keyboardType: TextInputType.phone,
                     controller: _nomorTeleponController,
@@ -183,20 +193,25 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Nama Klinik',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 Text(widget.klinik,
                     style: Theme.of(context).textTheme.bodyText1,
                 ),
                 const SizedBox(height: 5),
-                Text(
+                const Text(
                   'Tanggal Vaksinasi',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                  ),
                 ),
                 SizedBox(
-                  height: 50,
                   child: DateTimeField(
                     controller: _tanggalVaksinasiController,
                     format: DateFormat("dd/MM/yyyy"),
@@ -241,20 +256,25 @@ class _RegistrationState extends State<Registration> {
                             'nama_klinik': widget.klinik,
                             'tanggal_vaksinasi': _tanggalVaksinasiController.text
                           });
-                          showDialog(
+                          showDialog<String>(
                               context: context,
+                              barrierDismissible: false,
                               builder: (context) {
                                 return AlertDialog(
-                                  content: const Center(child: Text('Pendaftaran Vaksinasi Berhasil')),
+                                  elevation: 5,
+                                  title: const Text('Pendaftaran Vaksinasi Berhasil'),
                                   actions: [
                                     Center(
                                       child: ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text('OK'),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('OK'),
+                                          style: ElevatedButton.styleFrom(
+                                              minimumSize: const Size(100, 40)
+                                          )
                                       ),
-                                    )
+                                    ),
                                   ],
                                 );
                               }
@@ -265,9 +285,12 @@ class _RegistrationState extends State<Registration> {
                     },
                     child: const Text('Daftar',
                       style: TextStyle(
-                        fontSize: 16
+                        fontSize: 18
                       ),
                     ),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(90, 45)
+                    )
                   ),
                 ),
               ],
