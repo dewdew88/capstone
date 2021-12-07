@@ -1,12 +1,15 @@
+import 'package:capstone/common/styles.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Registration extends StatefulWidget {
   static const routeName = '/registration';
+  String klinik;
 
-  const Registration({Key? key}) : super(key: key);
+  Registration({Key? key, required this.klinik}) : super(key: key);
 
   @override
   _RegistrationState createState() => _RegistrationState();
@@ -20,6 +23,15 @@ class _RegistrationState extends State<Registration> {
   final _nomorTeleponController = TextEditingController();
   final _tanggalVaksinasiController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  clear(){
+    _nameController.clear();
+    _ktpController.clear();
+    _tempatLahirController.clear();
+    _tanggalLahirController.clear();
+    _nomorTeleponController.clear();
+    _tanggalVaksinasiController.clear();
+  }
 
   @override
   void dispose() {
@@ -149,12 +161,8 @@ class _RegistrationState extends State<Registration> {
                   'Nama Klinik',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                const TextField(
-                  readOnly: true,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Nama Klinik'
-                  ),
+                Text(widget.klinik,
+                    style: Theme.of(context).textTheme.bodyText1,
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -184,26 +192,49 @@ class _RegistrationState extends State<Registration> {
                   },
                 ),
                 const SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      if (_formKey.currentState!.validate()){
-                        FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(_ktpController.text).doc(_nameController.text).set({
-                          'nama_lengkap': _nameController.text,
-                          'nomor_ktp': _ktpController.text,
-                          'tempat_lahir': _tempatLahirController.text,
-                          'tanggal_lahir': _tanggalLahirController.text,
-                          'nomor_telepon': _nomorTeleponController.text,
-                          'nama_klinik': 'nama klinik',
-                          'tanggal_vaksinasi': _tanggalVaksinasiController.text
-                        });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Submitted'))
-                        );
-                      }
-                    });
-                  },
-                  child: const Text('Submit'),
+                Text('Setelah melakukan pendaftaran, Anda akan dihubungi oleh pihak dari Rumah Sakit/Puskesmas/Klinik yang telah dipilih untuk melakukan konfirmasi',
+                  textAlign: TextAlign.justify,
+                  style: GoogleFonts.poppins(
+                      fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.4, color: secondaryColor),
+                ),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        if (_formKey.currentState!.validate()){
+                          FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_nameController.text).set({
+                            'nama_lengkap': _nameController.text,
+                            'nomor_ktp': _ktpController.text,
+                            'tempat_lahir': _tempatLahirController.text,
+                            'tanggal_lahir': _tanggalLahirController.text,
+                            'nomor_telepon': _nomorTeleponController.text,
+                            'nama_klinik': widget.klinik,
+                            'tanggal_vaksinasi': _tanggalVaksinasiController.text
+                          });
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  content: const Center(child: Text('Pendaftaran Vaksinasi Berhasil')),
+                                  actions: [
+                                    Center(
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('OK'),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }
+                          );
+                          clear();
+                        }
+                      });
+                    },
+                    child: const Text('Daftar'),
+                  ),
                 ),
               ],
             ),

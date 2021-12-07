@@ -114,7 +114,7 @@ class VaccineDetailPage extends StatelessWidget {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, Registration.routeName);
+                Navigator.pushNamed(context, Registration.routeName, arguments: vaccineLoc.name);
               },
               child: Text('Daftar Sekarang'),
             ),

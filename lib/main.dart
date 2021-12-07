@@ -61,7 +61,9 @@ class MyApp extends StatelessWidget {
                     vaccineLoc:
                         ModalRoute.of(context)?.settings.arguments as Vaccine,
                   ),
-              Registration.routeName: (context) => const Registration(),
+              Registration.routeName: (context) => Registration(
+                klinik: ModalRoute.of(context)?.settings.arguments as String,
+              ),
             },
           );
         },
