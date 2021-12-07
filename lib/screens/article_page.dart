@@ -8,10 +8,6 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Article'),
-        centerTitle: true,
-      ),
       body: FutureBuilder<String>(
         future:
             DefaultAssetBundle.of(context).loadString('assets/articles.json'),
@@ -32,7 +28,6 @@ class ArticlePage extends StatelessWidget {
     return Card(
       margin: EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
       child: ListTile(
-        tileColor: Color(0xFFEBEDF5),
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         leading: ClipRRect(
           borderRadius: BorderRadius.circular(4),

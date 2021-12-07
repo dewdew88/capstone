@@ -1,6 +1,6 @@
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/home_page.dart';
-import 'package:capstone/screens/vaccine_page.dart';
+import 'package:capstone/screens/vaccines_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,22 +13,22 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _bottomNavIndex = 0;
 
-  List<Widget> _listWidget = [
-    HomePage(),
+  final List<Widget> _listWidget = [
+    const HomePage(),
     VaccinePage(),
     ArticlePage(),
   ];
 
-  List<BottomNavigationBarItem> _bottomNavBarItems = [
-    BottomNavigationBarItem(
+  final List<BottomNavigationBarItem> _bottomNavBarItems = [
+    const BottomNavigationBarItem(
       icon: Icon(Icons.home_outlined),
       label: 'Home',
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.map_outlined),
       label: 'Vaccine',
     ),
-    BottomNavigationBarItem(
+    const BottomNavigationBarItem(
       icon: Icon(Icons.article_outlined),
       label: 'Article',
     ),
@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         body: _listWidget[_bottomNavIndex],
         bottomNavigationBar: ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(25),
             topRight: Radius.circular(25),
           ),
