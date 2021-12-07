@@ -62,99 +62,125 @@ class _RegistrationState extends State<Registration> {
                   'Nama Lengkap',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                TextFormField(
-                  controller: _nameController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Masukkan Nama Lengkap Anda'
+                SizedBox(
+                  height: 50,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.sentences,
+                    keyboardType: TextInputType.text,
+                    controller: _nameController,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      border: OutlineInputBorder(),
+                      hintText: 'Masukkan Nama Lengkap Anda'
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 5),
                 Text(
                   'Nomor Kependudukan',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                TextFormField(
-                  controller: _ktpController,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Masukkan Nomor Kependudukan Anda'
+                SizedBox(
+                  height: 50,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    controller: _ktpController,
+                    decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        border: OutlineInputBorder(),
+                        hintText: 'Masukkan Nomor Kependudukan Anda'
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 5),
                 Text(
                   'Tempat Lahir',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                TextFormField(
-                  controller: _tempatLahirController,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Masukkan Tempat Lahir Anda'
+                SizedBox(
+                  height: 50,
+                  child: TextFormField(
+                    textCapitalization: TextCapitalization.sentences,
+                    keyboardType: TextInputType.text,
+                    controller: _tempatLahirController,
+                    decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        border: OutlineInputBorder(),
+                        hintText: 'Masukkan Tempat Lahir Anda'
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 5),
                 Text(
                   'Tanggal Lahir',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                DateTimeField(
-                  controller: _tanggalLahirController,
-                  format: DateFormat('dd/MM/yyyy'),
-                  onShowPicker: (context, currentVal) {
-                    return showDatePicker(
-                      context: context,
-                      initialDate: currentVal ?? DateTime(2010),
-                      firstDate: DateTime(1950),
-                      lastDate: DateTime(2015),
-                    );
-                  },
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Masukkan Tanggal Lahir Anda',
+                SizedBox(
+                  height: 50,
+                  child: DateTimeField(
+                    controller: _tanggalLahirController,
+                    format: DateFormat('dd/MM/yyyy'),
+                    onShowPicker: (context, currentVal) {
+                      return showDatePicker(
+                        context: context,
+                        initialDate: currentVal ?? DateTime(2010),
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime(2015),
+                      );
+                    },
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      border: OutlineInputBorder(),
+                      hintText: 'Masukkan Tanggal Lahir Anda',
+                    ),
+                    validator: (DateTime? value) {
+                      if (value == null) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (DateTime? value) {
-                    if (value == null) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 5),
                 Text(
                   'Nomor Telepon',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                TextFormField(
-                  controller: _nomorTeleponController,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Masukkan Nomor Telepon Anda'
+                SizedBox(
+                  height: 50,
+                  child: TextFormField(
+                    keyboardType: TextInputType.phone,
+                    controller: _nomorTeleponController,
+                    decoration: const InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                        border: OutlineInputBorder(),
+                        hintText: 'Masukkan Nomor Telepon Anda'
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 5),
                 Text(
@@ -169,27 +195,31 @@ class _RegistrationState extends State<Registration> {
                   'Tanggal Vaksinasi',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                DateTimeField(
-                  controller: _tanggalVaksinasiController,
-                  format: DateFormat("dd/MM/yyyy"),
-                  onShowPicker: (context, currentValue) {
-                    return showDatePicker(
-                        context: context,
-                        initialDate: currentValue ?? DateTime.now(),
-                        firstDate: DateTime(2021),
-                        lastDate: DateTime(2022)
-                    );
-                  },
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Masukkan Tanggal Vaksinasi Anda',
+                SizedBox(
+                  height: 50,
+                  child: DateTimeField(
+                    controller: _tanggalVaksinasiController,
+                    format: DateFormat("dd/MM/yyyy"),
+                    onShowPicker: (context, currentValue) {
+                      return showDatePicker(
+                          context: context,
+                          initialDate: currentValue ?? DateTime.now(),
+                          firstDate: DateTime(2021),
+                          lastDate: DateTime(2022)
+                      );
+                    },
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      border: OutlineInputBorder(),
+                      hintText: 'Masukkan Tanggal Vaksinasi Anda',
+                    ),
+                    validator: (DateTime? value) {
+                      if (value == null) {
+                        return 'Wajib diisi';
+                      }
+                      return null;
+                    },
                   ),
-                  validator: (DateTime? value) {
-                    if (value == null) {
-                      return 'Wajib diisi';
-                    }
-                    return null;
-                  },
                 ),
                 const SizedBox(height: 8),
                 Text('Setelah melakukan pendaftaran, Anda akan dihubungi oleh pihak dari Rumah Sakit/Puskesmas/Klinik yang telah dipilih untuk melakukan konfirmasi',
@@ -233,7 +263,11 @@ class _RegistrationState extends State<Registration> {
                         }
                       });
                     },
-                    child: const Text('Daftar'),
+                    child: const Text('Daftar',
+                      style: TextStyle(
+                        fontSize: 16
+                      ),
+                    ),
                   ),
                 ),
               ],
