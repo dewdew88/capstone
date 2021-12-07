@@ -8,8 +8,7 @@ class ListVaccine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<String>(
-      future:
-          DefaultAssetBundle.of(context).loadString('assets/type_vaccine.json'),
+      future: DefaultAssetBundle.of(context).loadString('assets/type_vaccine.json'),
       builder: (context, snapshot) {
         final List<TypeVaccine> listVaccines = parsedTypeVaccine(snapshot.data);
         if (snapshot.hasData) {
@@ -59,3 +58,4 @@ class ListVaccine extends StatelessWidget {
     );
   }
 }
+

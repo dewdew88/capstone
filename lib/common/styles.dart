@@ -79,6 +79,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
     textTheme: myTextTheme.apply(bodyColor: primaryColor),
     elevation: 0,
     centerTitle: true,
+    backgroundColor: darkPrimaryColor
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     selectedItemColor: primaryColor,
@@ -94,5 +95,11 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
         ),
       ),
     ),
+  ),
+  cardTheme: CardTheme(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+    ),
+    color: darkPrimaryColor,
   ),
 );
