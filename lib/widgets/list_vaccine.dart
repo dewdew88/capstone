@@ -13,48 +13,49 @@ class ListVaccine extends StatelessWidget {
         final List<TypeVaccine> listVaccines = parsedTypeVaccine(snapshot.data);
         if (snapshot.hasData) {
           return GridView.builder(
-           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-             crossAxisCount: 2,
-             childAspectRatio: 6/2,
-           ),
-           itemCount: listVaccines.length,
-           itemBuilder: (context, index) {
-             var vaccine = listVaccines[index];
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 6 / 2,
+            ),
+            itemCount: listVaccines.length,
+            itemBuilder: (context, index) {
+              var vaccine = listVaccines[index];
               return Card(
-                color: Color(0xFFEBEDF5),
                 child: ListTile(
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(4.0),
-                      child: Hero(
-                        tag: vaccine.pictureUrl,
-                        child: ClipRRect(
-                          child: Image.network(
-                            vaccine.pictureUrl,
-                            width: 40,
-                            height: 30,
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(3.0),
+                  leading: ClipRRect(
+                    borderRadius: BorderRadius.circular(4.0),
+                    child: Hero(
+                      tag: vaccine.pictureUrl,
+                      child: ClipRRect(
+                        child: Image.network(
+                          vaccine.pictureUrl,
+                          width: 40,
+                          height: 30,
+                          fit: BoxFit.cover,
                         ),
+                        borderRadius: BorderRadius.circular(3.0),
                       ),
                     ),
-                    title: Text(
-                      vaccine.name,
-                      style: const TextStyle(
-                          fontSize: 12,
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.pushNamed(context, TypeVaccineDetails.routeName, arguments: vaccine);
-                    },
                   ),
+                  title: Text(
+                    vaccine.name,
+                    style: const TextStyle(
+                      fontSize: 12,
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, TypeVaccineDetails.routeName,
+                        arguments: vaccine);
+                  },
+                ),
               );
-            }
+            },
           );
         } else {
           return const SizedBox(height: 1);
         }
-      }
+      },
     );
   }
 }
+

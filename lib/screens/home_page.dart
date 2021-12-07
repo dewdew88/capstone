@@ -9,11 +9,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-        automaticallyImplyLeading: false,
-      ),
-
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -31,11 +26,12 @@ class HomePage extends StatelessWidget {
               'Jenis Vaksin',
               style: Theme.of(context).textTheme.headline5,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: SizedBox(
-                height: MediaQuery.of(context).size.width * 0.95 * 0.52,
-                child: const ListVaccine(),
+                height: 180,
+                child: ListVaccine(),
+
               ),
             ),
           ],

@@ -9,14 +9,11 @@ import 'package:capstone/screens/on_boarding_page.dart';
 import 'package:capstone/screens/type_vaccine_details_page.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
-// import 'package:capstone/screens/vaccine_detail_page.dart';
-// import 'package:capstone/screens/vaccine_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'data/models/type_vaccine.dart';
 
 void main() {
