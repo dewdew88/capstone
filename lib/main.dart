@@ -47,7 +47,6 @@ class MyApp extends StatelessWidget {
               nextScreen: OnBoardingPage(),
               splashTransition: SplashTransition.rotationTransition,
               centered: true,
-              backgroundColor: Colors.white,
               duration: 3000,
             ),
             theme: provider.themeData,
