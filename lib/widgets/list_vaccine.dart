@@ -17,6 +17,7 @@ class ListVaccine extends StatelessWidget {
               crossAxisCount: 2,
               childAspectRatio: 6 / 2,
             ),
+            shrinkWrap: true,
             itemCount: listVaccines.length,
             itemBuilder: (context, index) {
               var vaccine = listVaccines[index];

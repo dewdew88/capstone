@@ -34,11 +34,15 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline6,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 190,
-                child: ListVaccine(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white38
+                ),
+                clipBehavior: Clip.hardEdge,
+                //height: 190,
+                child: const ListVaccine(),
 
               ),
             ),
