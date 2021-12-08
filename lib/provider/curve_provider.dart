@@ -1,7 +1,8 @@
 import 'package:capstone/data/api/api_service.dart';
 import 'package:capstone/data/api_models/vaccination.dart';
-import 'package:capstone/provider/response_state.dart';
 import 'package:flutter/material.dart';
+
+enum CurveState {loading, hasData, noData, error}
 
 class CurveProvider extends ChangeNotifier {
   final ApiService apiService;
@@ -11,30 +12,30 @@ class CurveProvider extends ChangeNotifier {
   }
 
   late Vaccination _vaccinationData;
-  late ResponseState _vaccinationState;
+  late CurveState _vaccinationState;
   String _message = '';
 
   String get message => _message;
 
   Vaccination get vaccinationData => _vaccinationData;
-  ResponseState get vaccinationState => _vaccinationState;
+  CurveState get vaccinationState => _vaccinationState;
 
   Future<dynamic> _fetchVaccinationData() async {
     try {
-      _vaccinationState = ResponseState.loading;
+      _vaccinationState = CurveState.loading;
       notifyListeners();
       final vaccination = await apiService.fetchVaccination();
       if (vaccination.harian.isEmpty) {
-        _vaccinationState = ResponseState.noData;
+        _vaccinationState = CurveState.noData;
         notifyListeners();
         return _message = 'Data is Empty';
       } else {
-        _vaccinationState = ResponseState.hasData;
+        _vaccinationState = CurveState.hasData;
         notifyListeners();
         return _vaccinationData = vaccination;
       }
     } catch (e) {
-      _vaccinationState = ResponseState.error;
+      _vaccinationState = CurveState.error;
       notifyListeners();
       return _message = 'Error -> $e';
     }

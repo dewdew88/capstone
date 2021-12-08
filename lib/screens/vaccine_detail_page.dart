@@ -1,6 +1,5 @@
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/vaccine.dart';
-import 'package:capstone/screens/vaccination_registration_page.dart';
 import 'package:flutter/material.dart';
 
 class VaccineDetailPage extends StatelessWidget {
@@ -113,9 +112,7 @@ class VaccineDetailPage extends StatelessWidget {
           SizedBox(height: 20),
           Center(
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, Registration.routeName, arguments: vaccineLoc.name);
-              },
+              onPressed: () {},
               child: Text('Daftar Sekarang'),
             ),
           ),

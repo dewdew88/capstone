@@ -18,9 +18,7 @@ class VaccinePage extends StatelessWidget {
         builder: (context, snapshot) {
           final List<Vaccine> listVaccineLocation =
               parsedVaccine(snapshot.data);
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasData) {
+          if (snapshot.hasData) {
             return ListView.builder(
               itemCount: listVaccineLocation.length,
               itemBuilder: (context, index) {
@@ -74,12 +72,9 @@ class VaccinePage extends StatelessWidget {
                                 size: 18,
                               ),
                             ),
-                            Flexible(
-                              child: Text(
-                                vaccineLoc.type,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
+                            Text(
+                              vaccineLoc.type,
+                              maxLines: 1,
                             )
                           ],
                         ),
