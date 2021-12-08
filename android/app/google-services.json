@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "429430134920",
+    "project_id": "vaccination-registration-b91e3",
+    "storage_bucket": "vaccination-registration-b91e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429430134920:android:3bedb9c259d7e2f697e73d",
+        "android_client_info": {
+          "package_name": "com.example.capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429430134920-h9rjcpp04btp06af3aa3bt5uut5tcvgi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCa6tz4O9PZKuZz8UriN1KUeWZq4oDi8Cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429430134920-h9rjcpp04btp06af3aa3bt5uut5tcvgi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
