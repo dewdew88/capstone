@@ -249,12 +249,12 @@ class _RegistrationState extends State<Registration> {
                         if (_formKey.currentState!.validate()){
                           FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_nameController.text).set({
                             'nama_lengkap': _nameController.text,
-                            'nomor_ktp': _ktpController.text,
+                            'nomor_ktp': num.parse(_ktpController.text),
                             'tempat_lahir': _tempatLahirController.text,
-                            'tanggal_lahir': _tanggalLahirController.text,
-                            'nomor_telepon': _nomorTeleponController.text,
+                            'tanggal_lahir': Timestamp.fromDate(DateTime.parse(_tanggalLahirController.text)),
+                            'nomor_telepon': num.parse(_nomorTeleponController.text),
                             'nama_klinik': widget.klinik,
-                            'tanggal_vaksinasi': _tanggalVaksinasiController.text
+                            'tanggal_vaksinasi': Timestamp.fromDate(DateTime.parse(_tanggalVaksinasiController.text))
                           });
                           showDialog<String>(
                               context: context,

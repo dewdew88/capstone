@@ -1,4 +1,5 @@
 import 'package:capstone/data/api/api_service.dart';
+import 'package:capstone/provider/response_state.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:capstone/provider/curve_provider.dart';
@@ -16,9 +17,9 @@ class VaccinationCurve extends StatelessWidget {
       create: (_) => CurveProvider(apiService: ApiService()),
       child: Consumer<CurveProvider>(
         builder: (context, state, _) {
-          if (state.vaccinationState == CurveState.loading) {
+          if (state.vaccinationState == ResponseState.loading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state.vaccinationState == CurveState.hasData) {
+          } else if (state.vaccinationState == ResponseState.hasData) {
             for (int i = 0; i < state.vaccinationData.harian.length; i++) {
               values1.add(state.vaccinationData.harian[i].jumlahKumVaksinasi1.value);
               values2.add(state.vaccinationData.harian[i].jumlahKumVaksinasi2.value);
@@ -145,9 +146,9 @@ class VaccinationCurve extends StatelessWidget {
                 ),
               ),
             );
-          } else if (state.vaccinationState == CurveState.noData) {
+          } else if (state.vaccinationState == ResponseState.noData) {
             return Text(state.message);
-          } else if (state.vaccinationState == CurveState.error) {
+          } else if (state.vaccinationState == ResponseState.error) {
             return const Text('Error');
           }
           return const SizedBox(height: 1);
