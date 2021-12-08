@@ -1,9 +1,12 @@
 import 'package:capstone/common/styles.dart';
+import 'package:capstone/data/models/registration_history.dart';
+import 'package:capstone/provider/history_provider.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class Registration extends StatefulWidget {
   static const routeName = '/registration';
@@ -46,6 +49,7 @@ class _RegistrationState extends State<Registration> {
 
   @override
   Widget build(BuildContext context) {
+    final historyNotifier = Provider.of<HistoryProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pendaftaran Vaksinasi'),
@@ -251,11 +255,22 @@ class _RegistrationState extends State<Registration> {
                             'nama_lengkap': _nameController.text,
                             'nomor_ktp': num.parse(_ktpController.text),
                             'tempat_lahir': _tempatLahirController.text,
-                            'tanggal_lahir': Timestamp.fromDate(DateTime.parse(_tanggalLahirController.text)),
-                            'nomor_telepon': num.parse(_nomorTeleponController.text),
+                            'tanggal_lahir': _tanggalLahirController.text,
+                            'nomor_telepon': _nomorTeleponController.text,
                             'nama_klinik': widget.klinik,
-                            'tanggal_vaksinasi': Timestamp.fromDate(DateTime.parse(_tanggalVaksinasiController.text))
+                            'tanggal_vaksinasi': _tanggalVaksinasiController.text
                           });
+
+                          historyNotifier.addHistory(History(
+                              nama: _nameController.text,
+                              ktp: num.parse(_ktpController.text),
+                              tempatLahir: _tempatLahirController.text,
+                              tanggalLahir: _tanggalLahirController.text,
+                              nomorTelepon: num.parse(_nomorTeleponController.text),
+                              namaKlinik: widget.klinik,
+                              tanggalVaksinasi: _tanggalVaksinasiController.text,
+                          ));
+
                           showDialog<String>(
                               context: context,
                               barrierDismissible: false,

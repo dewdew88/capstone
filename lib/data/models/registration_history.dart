@@ -2,10 +2,10 @@ class History {
   late String nama;
   late num ktp;
   late String tempatLahir;
-  late DateTime tanggalLahir;
+  late String tanggalLahir;
   late num nomorTelepon;
   late String namaKlinik;
-  late DateTime tanggalVaksinasi;
+  late String tanggalVaksinasi;
 
   History({
     required this.nama,

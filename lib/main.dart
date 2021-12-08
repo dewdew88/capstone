@@ -1,6 +1,7 @@
 import 'package:capstone/data/models/article.dart';
 import 'package:capstone/data/models/vaccine.dart';
 import 'package:capstone/data/preferences/preferences_helper.dart';
+import 'package:capstone/provider/history_provider.dart';
 import 'package:capstone/provider/preferences_provider.dart';
 import 'package:capstone/screens/article_detail_page.dart';
 import 'package:capstone/screens/article_page.dart';
@@ -35,6 +36,9 @@ class MyApp extends StatelessWidget {
               sharedPreferences: SharedPreferences.getInstance(),
             ),
           ),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HistoryProvider(),
         ),
       ],
       child: Consumer<PreferencesProvider>(
