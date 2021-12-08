@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:capstone/common/styles.dart';
 import 'package:capstone/provider/preferences_provider.dart';
+import 'package:capstone/screens/help_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +38,13 @@ class NavigationDrawer extends StatelessWidget {
               title: Text(
                 'Bantuan',
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => HelpPage(),
+                  ),
+                );
+              },
             ),
             Divider(),
             ListTile(
