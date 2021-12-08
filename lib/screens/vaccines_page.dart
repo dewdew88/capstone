@@ -12,9 +12,6 @@ class VaccinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Vaccine Location'),
-      ),
       body: FutureBuilder<String>(
         future:
             DefaultAssetBundle.of(context).loadString('assets/vaccine.json'),

@@ -9,34 +9,40 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SliderCarousel(),
-            const SizedBox(height: 8),
-            Text(
-              'Distribusi Vaksin',
-              style: Theme.of(context).textTheme.headline5,
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Distribusi Vaksin',
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.95 * 0.75,
               child: const VaccinationCurve(),
             ),
-            Text(
-              'Jenis Vaksin',
-              style: Theme.of(context).textTheme.headline5,
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                'Jenis Vaksin',
+                style: Theme.of(context).textTheme.headline6,
+              ),
             ),
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: SizedBox(
-                height: 180,
+                height: 190,
                 child: ListVaccine(),
+
               ),
             ),
+            const SizedBox(height: 10),
           ],
         ),
       ),
