@@ -72,7 +72,7 @@ class _VaccinePageState extends State<VaccinePage> {
                   ),
                 ),
                 Expanded(
-                  child: _searchResult.isNotEmpty
+                  child: _searchController.text.isNotEmpty
                       ? _buildSearchResult(_searchResult)
                       : _buildListView(listVaccineLocation),
                 ),
