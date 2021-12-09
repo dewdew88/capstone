@@ -2,8 +2,15 @@ import 'package:capstone/common/styles.dart';
 import 'package:capstone/screens/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatelessWidget {
+  _launchOnBoard() async{
+    int isFirstLaunch = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isFirstLaunch);
+  }
+
   List<PageViewModel> listPages() {
     return [
       PageViewModel(
@@ -55,7 +62,8 @@ class OnBoardingPage extends StatelessWidget {
         controlsMargin: EdgeInsets.all(16),
         controlsPadding: EdgeInsets.fromLTRB(8, 4, 8, 4),
         pages: listPages(),
-        onDone: () {
+        onDone: () async {
+          await _launchOnBoard();
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (_) => MainPage(),

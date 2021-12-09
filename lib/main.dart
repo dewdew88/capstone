@@ -9,17 +9,18 @@ import 'package:capstone/screens/on_boarding_page.dart';
 import 'package:capstone/screens/type_vaccine_details_page.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
-// import 'package:capstone/screens/vaccine_detail_page.dart';
-// import 'package:capstone/screens/vaccine_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'data/models/type_vaccine.dart';
 
-void main() {
+int? isFirstLaunch;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isFirstLaunch = prefs.getInt('onBoard');
   runApp(const MyApp());
 }
 
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             home: AnimatedSplashScreen(
               splash: Image.asset('assets/images/logo_vacare.png'),
-              nextScreen: OnBoardingPage(),
+              nextScreen: isFirstLaunch != 0 ? OnBoardingPage() : MainPage(),
               splashTransition: SplashTransition.rotationTransition,
               centered: true,
               duration: 3000,
