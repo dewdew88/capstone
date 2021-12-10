@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:capstone/provider/preferences_provider.dart';
 import 'package:capstone/screens/help_page.dart';
+import 'package:capstone/screens/vaccination_requirements_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +18,13 @@ class NavigationDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.medical_services),
               title: Text('Ketentuan Vaksin'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => Requirements(),
+                  ),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.brightness_6_rounded),
