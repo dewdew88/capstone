@@ -1,6 +1,8 @@
+import 'package:capstone/common/styles.dart';
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/home_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';
+import 'package:capstone/widgets/navigation_drawer.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -34,6 +36,38 @@ class _MainPageState extends State<MainPage> {
     ),
   ];
 
+  final List<AppBar> _appBar = [
+    AppBar(
+      title: Text('VaCare'),
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+              icon: Icon(Icons.menu, color: primaryColor),
+              onPressed: () => Scaffold.of(context).openDrawer());
+        },
+      ),
+    ),
+    AppBar(
+      title: Text('Vaccine'),
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+              icon: Icon(Icons.menu, color: primaryColor),
+              onPressed: () => Scaffold.of(context).openDrawer());
+        },
+      ),
+    ),
+    AppBar(
+      title: Text('Article'),
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+              icon: Icon(Icons.menu, color: primaryColor),
+              onPressed: () => Scaffold.of(context).openDrawer());
+        },
+      ),
+    ),
+  ];
   void _onBottomNavTapped(int index) {
     setState(() {
       _bottomNavIndex = index;
@@ -43,6 +77,8 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: NavigationDrawer(),
+        appBar: _appBar[_bottomNavIndex],
         body: _listWidget[_bottomNavIndex],
         bottomNavigationBar: ClipRRect(
           borderRadius: const BorderRadius.only(
