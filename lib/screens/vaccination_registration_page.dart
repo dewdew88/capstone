@@ -198,7 +198,7 @@ class _RegistrationState extends State<Registration> {
                 ),
                 const SizedBox(height: 5),
                 const Text(
-                  'Nama Klinik',
+                  'Tempat Vaksinasi',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold
@@ -251,7 +251,7 @@ class _RegistrationState extends State<Registration> {
                     onPressed: () {
                       setState(() {
                         if (_formKey.currentState!.validate()){
-                          FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_nameController.text).set({
+                          FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_ktpController.text).set({
                             'nama_lengkap': _nameController.text,
                             'nomor_ktp': num.parse(_ktpController.text),
                             'tempat_lahir': _tempatLahirController.text,
