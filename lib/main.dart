@@ -19,8 +19,11 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/models/type_vaccine.dart';
 
+int? isFirstLaunch;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isFirstLaunch = prefs.getInt('onBoard');
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -49,7 +52,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             home: AnimatedSplashScreen(
               splash: Image.asset('assets/images/logo_vacare.png'),
-              nextScreen: OnBoardingPage(),
+              nextScreen: isFirstLaunch != 0 ? OnBoardingPage() : MainPage(),
               splashTransition: SplashTransition.rotationTransition,
               centered: true,
               duration: 3000,
