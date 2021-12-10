@@ -64,7 +64,7 @@ class OnBoardingPage extends StatelessWidget {
         pages: listPages(),
         onDone: () async {
           await _launchOnBoard();
-          Navigator.of(context).push(
+          Navigator.of(context).pushReplacement(
             MaterialPageRoute(
               builder: (_) => MainPage(),
             ),
