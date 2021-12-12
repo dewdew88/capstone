@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Requirements extends StatelessWidget {
-  List<String> data = [
+  final List<String> data = [
     'Tidak memiliki penyakit yang kronis seperti penyakit jantung, autoimun, gagal ginjal kronis, rematik autoimun, penyakit saluran pencernaan kronis, hipertiroid atau hipotiroid, serta penyakit kanker.',
     'Tidak sedang mengalami infeksi akut yang disertai dengan demam, batuk, pilek, diare, dan lain-lain.',
     'Tidak memiliki anggota keluarga yang menjadi pasien COVID-19 atau sedang dalam perawatan COVID-19.',

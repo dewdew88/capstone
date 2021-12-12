@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 
 class Registration extends StatefulWidget {
   static const routeName = '/registration';
-  String klinik;
+  final String klinik;
 
   Registration({Key? key, required this.klinik}) : super(key: key);
 
