@@ -6,7 +6,7 @@ class Requirements extends StatelessWidget {
     'Tidak sedang mengalami infeksi akut yang disertai dengan demam, batuk, pilek, diare, dan lain-lain.',
     'Tidak memiliki anggota keluarga yang menjadi pasien COVID-19 atau sedang dalam perawatan COVID-19.',
     "Tidak dalam kondisi demam atau suhu diatas 37,5'C.",
-    'Pengidapdiabetes tipe 2terkontrol dan HbA1C di bawah 58 mmol/mol atau 7,5 persen dapat diberikan vaksinasi COVID-19.',
+    'Pengidap diabetes tipe 2 terkontrol dan HbA1C di bawah 58 mmol/mol atau 7,5 persen dapat diberikan vaksinasi COVID-19.',
     'Tidak memiliki penyakit paru, seperti asma, PPOK, atau TBC, maka vaksinasi akan ditunda hingga kondisi Anda dapat dinyatakan baik.',
     'Untuk pengidap TBC yang masih dalam perawatan, vaksinasi dapat diberikan setelah dua minggu menerima obat antituberkulosis.',
     'Tidak memiliki tekanan darah yang tinggi atau diatas 180/110.',
