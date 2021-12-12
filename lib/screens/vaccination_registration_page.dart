@@ -1,6 +1,7 @@
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/registration_history.dart';
 import 'package:capstone/provider/history_provider.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +28,8 @@ class _RegistrationState extends State<Registration> {
   final _tanggalVaksinasiController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  bool isOnline = false;
+
   clear(){
     _nameController.clear();
     _ktpController.clear();
@@ -45,6 +48,23 @@ class _RegistrationState extends State<Registration> {
     _nomorTeleponController.dispose();
     _tanggalVaksinasiController.dispose();
     super.dispose();
+  }
+
+  void checkConnection() async {
+    var connectivity  = await (Connectivity().checkConnectivity());
+    if (connectivity == ConnectivityResult.none) {
+      isOnline = false;
+    } else {
+      isOnline = true;
+    }
+  }
+
+  @override
+  void initState() {
+    Connectivity().onConnectivityChanged.listen((event) {
+      checkConnection();
+    });
+    super.initState();
   }
 
   @override
@@ -251,17 +271,17 @@ class _RegistrationState extends State<Registration> {
                     onPressed: () {
                       setState(() {
                         if (_formKey.currentState!.validate()){
-                          FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_ktpController.text).set({
-                            'nama_lengkap': _nameController.text,
-                            'nomor_ktp': num.parse(_ktpController.text),
-                            'tempat_lahir': _tempatLahirController.text,
-                            'tanggal_lahir': _tanggalLahirController.text,
-                            'nomor_telepon': _nomorTeleponController.text,
-                            'nama_klinik': widget.klinik,
-                            'tanggal_vaksinasi': _tanggalVaksinasiController.text
-                          });
-
-                          historyNotifier.addHistory(History(
+                          if (isOnline) {
+                            FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_ktpController.text).set({
+                              'nama_lengkap': _nameController.text,
+                              'nomor_ktp': num.parse(_ktpController.text),
+                              'tempat_lahir': _tempatLahirController.text,
+                              'tanggal_lahir': _tanggalLahirController.text,
+                              'nomor_telepon': _nomorTeleponController.text,
+                              'nama_klinik': widget.klinik,
+                              'tanggal_vaksinasi': _tanggalVaksinasiController.text
+                            });
+                            historyNotifier.addHistory(History(
                               nama: _nameController.text,
                               ktp: num.parse(_ktpController.text),
                               tempatLahir: _tempatLahirController.text,
@@ -269,32 +289,57 @@ class _RegistrationState extends State<Registration> {
                               nomorTelepon: num.parse(_nomorTeleponController.text),
                               namaKlinik: widget.klinik,
                               tanggalVaksinasi: _tanggalVaksinasiController.text,
-                          ));
-
-                          showDialog<String>(
-                              context: context,
-                              barrierDismissible: false,
-                              builder: (context) {
-                                return AlertDialog(
-                                  elevation: 5,
-                                  title: const Text('Pendaftaran Vaksinasi Berhasil'),
-                                  actions: [
-                                    Center(
-                                      child: ElevatedButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('OK'),
-                                          style: ElevatedButton.styleFrom(
-                                              minimumSize: const Size(100, 40)
-                                          )
+                            ));
+                            showDialog<String>(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    elevation: 5,
+                                    title: const Text('Pendaftaran Vaksinasi Berhasil'),
+                                    actions: [
+                                      Center(
+                                        child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('OK'),
+                                            style: ElevatedButton.styleFrom(
+                                                minimumSize: const Size(100, 40)
+                                            )
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                );
-                              }
-                          );
-                          clear();
+                                    ],
+                                  );
+                                }
+                            );
+                            clear();
+                          } else {
+                            showDialog<String>(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    elevation: 5,
+                                    title: const Text('Pendaftaran Vaksinasi Gagal'),
+                                    content: Text('Silahkan periksa koneksi internet anda'),
+                                    actions: [
+                                      Center(
+                                        child: ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: const Text('OK'),
+                                            style: ElevatedButton.styleFrom(
+                                                minimumSize: const Size(100, 40)
+                                            )
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }
+                            );
+                          }
                         }
                       });
                     },
