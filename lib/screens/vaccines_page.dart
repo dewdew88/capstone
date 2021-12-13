@@ -1,6 +1,10 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/vaccine.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
 class VaccinePage extends StatefulWidget {
@@ -16,73 +20,124 @@ class _VaccinePageState extends State<VaccinePage> {
   final _searchController = TextEditingController();
   List<Vaccine> _searchResult = [];
 
+  Map source = {ConnectivityResult.none : false};
+  //final _connectivity = Connectivity();
+  final _controller = StreamController.broadcast();
+  Stream get myStream => _controller.stream;
+
+  void initialise() async {
+    ConnectivityResult result = await Connectivity().checkConnectivity();
+    _checkStatus(result);
+    Connectivity().onConnectivityChanged.listen((result) {
+      _checkStatus(result);
+    });
+  }
+
+  void _checkStatus(ConnectivityResult result) async {
+    bool isOnline = false;
+    try {
+      final result = await InternetAddress.lookup('example.com');
+      isOnline = result.isNotEmpty && result[0].rawAddress.isNotEmpty;
+    } on SocketException catch (_) {
+      isOnline = false;
+    }
+    _controller.sink.add({result: isOnline});
+  }
+
+  @override
+  void initState() {
+    initialise();
+    _controller.stream.listen((event) {
+      setState(() {
+        source = event;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget widget;
+    switch (source.keys.toList()[0]) {
+      case ConnectivityResult.mobile:
+        widget = _buildFutureBuilder(context);
+        break;
+      case ConnectivityResult.wifi:
+        widget = _buildFutureBuilder(context);
+        break;
+      case ConnectivityResult.none:
+      default:
+        widget = Text('Offline');
+    }
+    return Scaffold(
+      body: widget,
+    );
+  }
+
   @override
   void dispose() {
     _searchController.dispose();
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder<String>(
-        future:
-            DefaultAssetBundle.of(context).loadString('assets/vaccine.json'),
-        builder: (context, snapshot) {
-          final List<Vaccine> listVaccineLocation =
-              parsedVaccine(snapshot.data);
-          if (!snapshot.hasData) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasData) {
-            return Column(
-              children: [
-                Card(
-                  child: ListTile(
-                    leading: const Icon(Icons.search),
-                    trailing: IconButton(
-                      icon: const Icon(Icons.clear),
-                      onPressed: () {
-                        setState(() {
-                          _searchController.clear();
-                          _searchResult.clear();
-                        });
-                      },
-                    ),
-                    title: TextField(
-                      controller: _searchController,
-                      decoration: const InputDecoration(
-                          hintText: 'Search', border: InputBorder.none),
-                      onChanged: (_) {
-                        List<Vaccine> result = [];
-                        for (var listResult in listVaccineLocation) {
-                          if (listResult.name
-                                  .toLowerCase()
-                                  .contains(_searchController.text) ||
-                              listResult.city
-                                  .toLowerCase()
-                                  .contains(_searchController.text)) {
-                            result.add(listResult);
-                          }
+  FutureBuilder<String> _buildFutureBuilder(BuildContext context) {
+    return FutureBuilder<String>(
+      future:
+          DefaultAssetBundle.of(context).loadString('assets/vaccine.json'),
+      builder: (context, snapshot) {
+        final List<Vaccine> listVaccineLocation =
+            parsedVaccine(snapshot.data);
+        if (!snapshot.hasData) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasData) {
+          return Column(
+            children: [
+              Card(
+                child: ListTile(
+                  leading: const Icon(Icons.search),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: () {
+                      setState(() {
+                        _searchController.clear();
+                        _searchResult.clear();
+                      });
+                    },
+                  ),
+                  title: TextField(
+                    controller: _searchController,
+                    decoration: const InputDecoration(
+                        hintText: 'Search', border: InputBorder.none),
+                    onChanged: (_) {
+                      List<Vaccine> result = [];
+                      for (var listResult in listVaccineLocation) {
+                        if (listResult.name
+                                .toLowerCase()
+                                .contains(_searchController.text) ||
+                            listResult.city
+                                .toLowerCase()
+                                .contains(_searchController.text)) {
+                          result.add(listResult);
                         }
-                        setState(() {
-                          _searchResult = result;
-                        });
-                      },
-                    ),
+                      }
+                      setState(() {
+                        _searchResult = result;
+                      });
+                    },
                   ),
                 ),
-                Expanded(
-                  child: _searchController.text.isNotEmpty
-                      ? _buildSearchResult(_searchResult)
-                      : _buildListView(listVaccineLocation),
-                ),
-              ],
-            );
-          } else {
-            return const Text('Data not exist');
-          }
-        },
-      ),
+              ),
+              Expanded(
+                child: _searchController.text.isNotEmpty
+                    ? _buildSearchResult(_searchResult)
+                    : _buildListView(listVaccineLocation),
+              ),
+            ],
+          );
+        } else {
+          return const Text('Data not exist');
+        }
+      },
     );
   }
 
