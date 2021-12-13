@@ -21,19 +21,17 @@ class _VaccinePageState extends State<VaccinePage> {
   List<Vaccine> _searchResult = [];
 
   Map source = {ConnectivityResult.none : false};
-  //final _connectivity = Connectivity();
   final _controller = StreamController.broadcast();
-  Stream get myStream => _controller.stream;
 
   void initialise() async {
     ConnectivityResult result = await Connectivity().checkConnectivity();
-    _checkStatus(result);
+    checkConnectivity(result);
     Connectivity().onConnectivityChanged.listen((result) {
-      _checkStatus(result);
+      checkConnectivity(result);
     });
   }
 
-  void _checkStatus(ConnectivityResult result) async {
+  void checkConnectivity(ConnectivityResult result) async {
     bool isOnline = false;
     try {
       final result = await InternetAddress.lookup('example.com');
@@ -67,7 +65,7 @@ class _VaccinePageState extends State<VaccinePage> {
         break;
       case ConnectivityResult.none:
       default:
-        widget = Text('Offline');
+        widget = const Center(child: Text('Silahkan cek kembali koneksi internet Anda'));
     }
     return Scaffold(
       body: widget,

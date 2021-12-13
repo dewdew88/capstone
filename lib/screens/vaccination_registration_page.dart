@@ -31,6 +31,31 @@ class _RegistrationState extends State<Registration> {
 
   bool isOnline = false;
 
+  void initialize() async {
+    var connectivity = await (Connectivity().checkConnectivity());
+    checkConnection(connectivity);
+    Connectivity().onConnectivityChanged.listen((connectivity) {
+      checkConnection(connectivity);
+    });
+  }
+
+  void checkConnection(ConnectivityResult connectivityResult) async {
+    if (connectivityResult == ConnectivityResult.wifi || connectivityResult == ConnectivityResult.mobile) {
+      try {
+        final result = await InternetAddress.lookup('example.com');
+        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+          isOnline = true;
+          print('connected');
+        }
+      } on SocketException catch (_) {
+        isOnline = false;
+        print('not connected');
+      }
+    } else {
+      isOnline = false;
+    }
+  }
+
   clear(){
     _nameController.clear();
     _ktpController.clear();
@@ -51,38 +76,10 @@ class _RegistrationState extends State<Registration> {
     super.dispose();
   }
 
-  void checkConnection() async {
-    var connectivity  = await (Connectivity().checkConnectivity());
-    if (connectivity == ConnectivityResult.wifi || connectivity == ConnectivityResult.mobile) {
-      try {
-        final result = await InternetAddress.lookup('example.com');
-        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          isOnline = true;
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connecting...')));
-          print('connected');
-        }
-      } on SocketException catch (_) {
-        isOnline = false;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Not Connected')));
-        print('not connected');
-      }
-    } else {
-      isOnline = false;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Not Connected')));
-    }
-  }
-
-  @override
-  void initState() {
-    Connectivity().onConnectivityChanged.listen((event) {
-      checkConnection();
-    });
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     final historyNotifier = Provider.of<HistoryProvider>(context);
+    initialize();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Pendaftaran Vaksinasi'),
