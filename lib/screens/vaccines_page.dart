@@ -64,8 +64,10 @@ class _VaccinePageState extends State<VaccinePage> {
         widget = _buildFutureBuilder(context);
         break;
       case ConnectivityResult.none:
+        widget = const Center(child: Text('Silahkan periksa kembali koneksi internet Anda'));
+        break;
       default:
-        widget = const Center(child: Text('Silahkan cek kembali koneksi internet Anda'));
+        widget = const Center(child: CircularProgressIndicator());
     }
     return Scaffold(
       body: widget,
