@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/registration_history.dart';
 import 'package:capstone/provider/history_provider.dart';
@@ -52,10 +54,22 @@ class _RegistrationState extends State<Registration> {
 
   void checkConnection() async {
     var connectivity  = await (Connectivity().checkConnectivity());
-    if (connectivity == ConnectivityResult.none) {
-      isOnline = false;
+    if (connectivity == ConnectivityResult.wifi || connectivity == ConnectivityResult.mobile) {
+      try {
+        final result = await InternetAddress.lookup('example.com');
+        if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+          isOnline = true;
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Connecting...')));
+          print('connected');
+        }
+      } on SocketException catch (_) {
+        isOnline = false;
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Not Connected')));
+        print('not connected');
+      }
     } else {
-      isOnline = true;
+      isOnline = false;
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Not Connected')));
     }
   }
 
@@ -271,7 +285,7 @@ class _RegistrationState extends State<Registration> {
                     onPressed: () {
                       setState(() {
                         if (_formKey.currentState!.validate()){
-                          if (isOnline) {
+                          if (isOnline == true) {
                             FirebaseFirestore.instance.collection('registration').doc(DateFormat('d-M-y').format(DateTime.now())).collection(widget.klinik).doc(_ktpController.text).set({
                               'nama_lengkap': _nameController.text,
                               'nomor_ktp': num.parse(_ktpController.text),
