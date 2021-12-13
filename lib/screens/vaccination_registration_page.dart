@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/registration_history.dart';
 import 'package:capstone/provider/history_provider.dart';

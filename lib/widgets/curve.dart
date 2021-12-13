@@ -158,7 +158,7 @@ class VaccinationCurve extends StatelessWidget {
           } else if (state.vaccinationState == ResponseState.noData) {
             return Text(state.message);
           } else if (state.vaccinationState == ResponseState.error) {
-            return const Text('Error');
+            return const Center(child: Text('Silahkan periksa kembali koneksi internet Anda'));
           }
           return const SizedBox(height: 1);
         },
