@@ -116,8 +116,8 @@ class _VaccinePageState extends State<VaccinePage> {
               children: [
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(2),
+                    const Padding(
+                      padding: EdgeInsets.all(2),
                       child: Icon(
                         Icons.location_city_rounded,
                         color: secondaryColor,
@@ -132,8 +132,8 @@ class _VaccinePageState extends State<VaccinePage> {
                 ),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(2),
+                    const Padding(
+                      padding: EdgeInsets.all(2),
                       child: Icon(
                         Icons.enhanced_encryption_rounded,
                         color: secondaryColor,
@@ -171,7 +171,7 @@ class _VaccinePageState extends State<VaccinePage> {
           margin: const EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
           child: ListTile(
             contentPadding:
-            const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             leading: Hero(
               tag: vaccineLoc.urlImage,
               child: ClipRRect(
@@ -191,8 +191,8 @@ class _VaccinePageState extends State<VaccinePage> {
               children: [
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(2),
+                    const Padding(
+                      padding: EdgeInsets.all(2),
                       child: Icon(
                         Icons.location_city_rounded,
                         color: secondaryColor,
@@ -207,8 +207,8 @@ class _VaccinePageState extends State<VaccinePage> {
                 ),
                 Row(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(2),
+                    const Padding(
+                      padding: EdgeInsets.all(2),
                       child: Icon(
                         Icons.enhanced_encryption_rounded,
                         color: secondaryColor,

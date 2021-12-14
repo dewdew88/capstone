@@ -27,7 +27,7 @@ class TypeVaccineDetails extends StatelessWidget {
                       padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
                         child: IconButton(
-                          icon: Icon(Icons.arrow_back_rounded),
+                          icon: const Icon(Icons.arrow_back_rounded),
                           onPressed: () {
                             Navigator.pop(context);
                           },

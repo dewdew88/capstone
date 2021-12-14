@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 class MainPage extends StatefulWidget {
   static const routeName = 'main_page';
 
+  const MainPage({Key? key}) : super(key: key);
+
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -17,8 +19,8 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _listWidget = [
     const HomePage(),
-    VaccinePage(),
-    ArticlePage(),
+    const VaccinePage(),
+    const ArticlePage(),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavBarItems = [
@@ -38,31 +40,31 @@ class _MainPageState extends State<MainPage> {
 
   final List<AppBar> _appBar = [
     AppBar(
-      title: Text('VaCare'),
+      title: const Text('VaCare'),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu, color: primaryColor),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),
     ),
     AppBar(
-      title: Text('Vaccine'),
+      title: const Text('Vaccine'),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu, color: primaryColor),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),
     ),
     AppBar(
-      title: Text('Article'),
+      title: const Text('Article'),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu, color: primaryColor),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),
@@ -77,7 +79,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: NavigationDrawer(),
+        drawer: const NavigationDrawer(),
         appBar: _appBar[_bottomNavIndex],
         body: _listWidget[_bottomNavIndex],
         bottomNavigationBar: ClipRRect(

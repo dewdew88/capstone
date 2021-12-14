@@ -8,7 +8,7 @@ class VaccineDetailPage extends StatelessWidget {
 
   final Vaccine vaccineLoc;
 
-  VaccineDetailPage({required this.vaccineLoc});
+  const VaccineDetailPage({Key? key, required this.vaccineLoc}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +29,10 @@ class VaccineDetailPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: CircleAvatar(
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back_rounded,
                           color: primaryColor,
                         ),
@@ -65,8 +65,8 @@ class VaccineDetailPage extends StatelessWidget {
           ),
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(2),
+              const Padding(
+                padding: EdgeInsets.all(2),
                 child: Icon(
                   Icons.location_city_rounded,
                   color: secondaryColor,
@@ -79,8 +79,8 @@ class VaccineDetailPage extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(2),
+              const Padding(
+                padding: EdgeInsets.all(2),
                 child: Icon(
                   Icons.location_on,
                   color: secondaryColor,
@@ -94,8 +94,8 @@ class VaccineDetailPage extends StatelessWidget {
           ),
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(2),
+              const Padding(
+                padding: EdgeInsets.all(2),
                 child: Icon(
                   Icons.call_rounded,
                   color: secondaryColor,
@@ -105,18 +105,18 @@ class VaccineDetailPage extends StatelessWidget {
               Text(vaccineLoc.contact),
             ],
           ),
-          Divider(color: Colors.grey),
+          const Divider(color: Colors.grey),
           Text('Tanggal operasional : ${vaccineLoc.date}'),
           Text('Waktu operasional : ${vaccineLoc.time}'),
           Text('Jenis vaksin tersedia : ${vaccineLoc.type}'),
           Text('Kuota penerima vaksin : ${vaccineLoc.quota}'),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, Registration.routeName, arguments: vaccineLoc.name);
               },
-              child: Text('Daftar Sekarang'),
+              child: const Text('Daftar Sekarang'),
             ),
           ),
         ],

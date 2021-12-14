@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SliderCarousel(),
+            const SliderCarousel(),
             const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -38,12 +38,11 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: const BoxDecoration(
-                    color: Colors.transparent,
+                  color: Colors.transparent,
                 ),
                 clipBehavior: Clip.hardEdge,
                 //height: 190,
                 child: const ListVaccine(),
-
               ),
             ),
             const SizedBox(height: 10),

@@ -10,6 +10,8 @@ final List<String> carouselData = [
 ];
 
 class SliderCarousel extends StatefulWidget {
+  const SliderCarousel({Key? key}) : super(key: key);
+
   @override
   _SliderCarouselState createState() => _SliderCarouselState();
 }
@@ -23,18 +25,16 @@ class _SliderCarouselState extends State<SliderCarousel> {
       children: [
         CarouselSlider(
           items: carouselData
-              .map((item) => Container(
-                    child: Center(
-                      child: Image.asset(
-                        item,
-                      ),
-                    ),
-                  ))
+              .map((item) => Center(
+                child: Image.asset(
+                  item,
+                ),
+              ))
               .toList(),
           options: CarouselOptions(
               height: 170,
               autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
+              autoPlayInterval: const Duration(seconds: 3),
               enlargeCenterPage: true,
               aspectRatio: 2,
               scrollDirection: Axis.horizontal,
@@ -51,13 +51,13 @@ class _SliderCarouselState extends State<SliderCarousel> {
             return Container(
               width: _currentIndex == index ? 30 : 8,
               height: 8,
-              margin: EdgeInsets.only(right: 6),
+              margin: const EdgeInsets.only(right: 6),
               decoration: BoxDecoration(
                 shape: BoxShape.rectangle,
                 borderRadius: BorderRadius.circular(10),
                 color: _currentIndex == index
-                    ? Color.fromRGBO(0, 0, 0, 0.9)
-                    : Color.fromRGBO(0, 0, 0, 0.4),
+                    ? const Color.fromRGBO(0, 0, 0, 0.9)
+                    : const Color.fromRGBO(0, 0, 0, 0.4),
               ),
             );
           }).toList(),

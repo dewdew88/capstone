@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class ArticlePage extends StatelessWidget {
   static const routeName = '/article_page';
 
+  const ArticlePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +28,7 @@ class ArticlePage extends StatelessWidget {
 
   Widget _buildArticleItem(BuildContext context, Article article) {
     return Card(
-      margin: EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
+      margin: const EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         leading: ClipRRect(

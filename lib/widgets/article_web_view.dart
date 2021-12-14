@@ -6,13 +6,13 @@ class ArticleWebView extends StatelessWidget {
 
   final String url;
 
-  const ArticleWebView({required this.url});
+  const ArticleWebView({Key? key, required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Article Update'),
+        title: const Text('Article Update'),
       ),
       body: WebView(
         initialUrl: url,

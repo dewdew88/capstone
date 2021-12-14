@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HelpPage extends StatelessWidget {
+  const HelpPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SliverPersistentHeader _header(String text) {
@@ -38,7 +40,7 @@ class HelpPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bantuan'),
+        title: const Text('Bantuan'),
         centerTitle: true,
       ),
       body: CustomScrollView(

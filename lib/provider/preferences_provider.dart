@@ -1,6 +1,5 @@
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/preferences/preferences_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PreferencesProvider extends ChangeNotifier {

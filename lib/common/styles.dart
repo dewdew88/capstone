@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final Color primaryColor = Color(0xFFFFFFFF);
-final Color secondaryColor = Color(0xFF1837AB);
-final Color mTextColor = Color(0xFF3F3D56);
-final Color darkPrimaryColor = Color(0xFF000000);
-final Color lightGreyColor = Color(0xFFEBEDF5);
+const Color primaryColor = Color(0xFFFFFFFF);
+const Color secondaryColor = Color(0xFF1837AB);
+const Color mTextColor = Color(0xFF3F3D56);
+const Color darkPrimaryColor = Color(0xFF000000);
+const Color lightGreyColor = Color(0xFFEBEDF5);
 
 final TextTheme myTextTheme = TextTheme(
   headline1: GoogleFonts.poppins(
@@ -36,17 +36,17 @@ final TextTheme myTextTheme = TextTheme(
 
 ThemeData lightTheme = ThemeData(
   primaryColor: primaryColor,
-  accentColor: secondaryColor,
   scaffoldBackgroundColor: Colors.white,
   textTheme: myTextTheme,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   appBarTheme: AppBarTheme(
-    textTheme: myTextTheme.apply(bodyColor: primaryColor),
     elevation: 0,
     centerTitle: true,
     backgroundColor: secondaryColor,
+    toolbarTextStyle: myTextTheme.apply(bodyColor: primaryColor).bodyText2,
+    titleTextStyle: myTextTheme.apply(bodyColor: primaryColor).headline6,
   ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: secondaryColor,
     selectedItemColor: primaryColor,
     unselectedItemColor: Color(0xFFBBBDD1),
@@ -54,52 +54,53 @@ ThemeData lightTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       primary: secondaryColor,
-      textStyle: TextStyle(),
-      shape: RoundedRectangleBorder(
+      textStyle: const TextStyle(),
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(5),
         ),
       ),
     ),
   ),
-  cardTheme: CardTheme(
+  cardTheme: const CardTheme(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     color: lightGreyColor,
   ),
+  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: secondaryColor),
 );
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
   primaryColor: darkPrimaryColor,
-  accentColor: secondaryColor,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   textTheme: myTextTheme,
   appBarTheme: AppBarTheme(
-    textTheme: myTextTheme.apply(bodyColor: primaryColor),
-    elevation: 0,
-    centerTitle: true,
-    backgroundColor: darkPrimaryColor
-  ),
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      elevation: 0,
+      centerTitle: true,
+      backgroundColor: darkPrimaryColor,
+      toolbarTextStyle: myTextTheme.apply(bodyColor: primaryColor).bodyText2,
+      titleTextStyle: myTextTheme.apply(bodyColor: primaryColor).headline6),
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     selectedItemColor: primaryColor,
     unselectedItemColor: Color(0xFFBBBDD1),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       primary: secondaryColor,
-      textStyle: TextStyle(),
-      shape: RoundedRectangleBorder(
+      textStyle: const TextStyle(),
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(5),
         ),
       ),
     ),
   ),
-  cardTheme: CardTheme(
+  cardTheme: const CardTheme(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(10)),
     ),
     color: darkPrimaryColor,
   ),
+  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: secondaryColor),
 );
