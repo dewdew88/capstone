@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/vaccine.dart';
+import 'package:capstone/provider/response_state.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _VaccinePageState extends State<VaccinePage> {
   final _searchController = TextEditingController();
   List<Vaccine> _searchResult = [];
 
-  Map source = {ConnectivityResult.none : false};
+  Map source = {ConnectivityResult.values : false};
   final _controller = StreamController.broadcast();
 
   void initialise() async {
