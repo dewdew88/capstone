@@ -1,14 +1,11 @@
 import 'dart:io';
 import 'package:capstone/common/styles.dart';
-import 'package:capstone/data/models/registration_history.dart';
-import 'package:capstone/provider/history_provider.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:provider/provider.dart';
 
 class Registration extends StatefulWidget {
   static const routeName = '/registration';
@@ -45,11 +42,9 @@ class _RegistrationState extends State<Registration> {
         final result = await InternetAddress.lookup('example.com');
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
           isOnline = true;
-          print('connected');
         }
       } on SocketException catch (_) {
         isOnline = false;
-        print('not connected');
       }
     } else {
       isOnline = false;
@@ -78,7 +73,6 @@ class _RegistrationState extends State<Registration> {
 
   @override
   Widget build(BuildContext context) {
-    final historyNotifier = Provider.of<HistoryProvider>(context);
     initialize();
     return Scaffold(
       appBar: AppBar(
@@ -291,15 +285,6 @@ class _RegistrationState extends State<Registration> {
                               'nama_klinik': widget.klinik,
                               'tanggal_vaksinasi': _tanggalVaksinasiController.text
                             });
-                            historyNotifier.addHistory(History(
-                              nama: _nameController.text,
-                              ktp: num.parse(_ktpController.text),
-                              tempatLahir: _tempatLahirController.text,
-                              tanggalLahir: _tanggalLahirController.text,
-                              nomorTelepon: num.parse(_nomorTeleponController.text),
-                              namaKlinik: widget.klinik,
-                              tanggalVaksinasi: _tanggalVaksinasiController.text,
-                            ));
                             showDialog<String>(
                                 context: context,
                                 barrierDismissible: false,
@@ -332,7 +317,7 @@ class _RegistrationState extends State<Registration> {
                                   return AlertDialog(
                                     elevation: 5,
                                     title: const Text('Pendaftaran Vaksinasi Gagal'),
-                                    content: Text('Silahkan periksa koneksi internet anda'),
+                                    content: const Text('Silahkan periksa koneksi internet anda'),
                                     actions: [
                                       Center(
                                         child: ElevatedButton(
@@ -370,5 +355,4 @@ class _RegistrationState extends State<Registration> {
       ),
     );
   }
-
 }

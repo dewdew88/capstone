@@ -121,15 +121,15 @@
     },
     {
         "id": 11,
-        "name": "Puskesmas Jeruk Surabaya",
-        "city": "Surabaya",
-        "address": "Jl. Raya Menganti No. 277A, Jeruk, Kec. Lakarsantri, Kota Surabaya, Jawa Timur 60212",
-        "date": "31 Agu 2021 - 31 Apr 2022",
-        "time": "08:00 - 12:00 WIB",
-        "contact": "(031) 7521680",
+        "name": "Puskesmas Jurangombo",
+        "city": "Magelang",
+        "address": "Jl. Sunan Gunung Jati No.48, Jurangombo Utara, Kec. Magelang Sel., Kota Magelang, Jawa Tengah 56123",
+        "date": "16 Sep 2021 - 31 Apr 2022",
+        "time": "07:30 - 10:30 WIB",
+        "contact": "(0293) 3148544",
         "quota": 45,
         "type": "Moderna, AstraZeneca, Pfizer",
-        "urlImage": "http://dinkes.surabaya.go.id/portalv2/foto/Puskesmas-Jeruk-2-resize.jpg"
+        "urlImage": "https://puskesmasjurangombomagelang.files.wordpress.com/2016/03/jo.jpg"
     },
     {
         "id": 12,
