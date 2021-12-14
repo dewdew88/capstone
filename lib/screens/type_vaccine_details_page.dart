@@ -1,3 +1,4 @@
+import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/type_vaccine.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class TypeVaccineDetails extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
+                        backgroundColor: secondaryColor,
                         child: IconButton(
                           icon: const Icon(Icons.arrow_back_rounded),
                           onPressed: () {
