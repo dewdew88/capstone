@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 class ArticlePage extends StatefulWidget {
   static const routeName = '/article_page';
 
+  const ArticlePage({Key? key}) : super(key: key);
+
   @override
   State<ArticlePage> createState() => _ArticlePageState();
 }
@@ -86,7 +88,7 @@ class _ArticlePageState extends State<ArticlePage> {
 
   Widget _buildArticleItem(BuildContext context, Article article) {
     return Card(
-      margin: EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
+      margin: const EdgeInsets.only(right: 16, left: 16, top: 4, bottom: 6),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
         leading: ClipRRect(

@@ -5,7 +5,9 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoardingPage extends StatelessWidget {
-  _launchOnBoard() async{
+  const OnBoardingPage({Key? key}) : super(key: key);
+
+  _launchOnBoard() async {
     int isFirstLaunch = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isFirstLaunch);
@@ -53,24 +55,24 @@ class OnBoardingPage extends StatelessWidget {
         skipFlex: 0,
         nextFlex: 0,
         skip: Text('Skip', style: Theme.of(context).textTheme.bodyText1!),
-        next: Icon(
+        next: const Icon(
           Icons.arrow_forward,
         ),
         done: Text('Done', style: Theme.of(context).textTheme.bodyText1!),
         showSkipButton: true,
         showDoneButton: true,
-        controlsMargin: EdgeInsets.all(16),
-        controlsPadding: EdgeInsets.fromLTRB(8, 4, 8, 4),
+        controlsMargin: const EdgeInsets.all(16),
+        controlsPadding: const EdgeInsets.fromLTRB(8, 4, 8, 4),
         pages: listPages(),
         onDone: () async {
           await _launchOnBoard();
           Navigator.of(context).pushReplacement(
             MaterialPageRoute(
-              builder: (_) => MainPage(),
+              builder: (_) => const MainPage(),
             ),
           );
         },
-        dotsDecorator: DotsDecorator(
+        dotsDecorator: const DotsDecorator(
           size: Size(10, 10),
           activeSize: Size(40, 10),
           color: Color(0xFFFF9D43),
@@ -79,7 +81,7 @@ class OnBoardingPage extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(25)),
           ),
         ),
-        dotsContainerDecorator: ShapeDecoration(
+        dotsContainerDecorator: const ShapeDecoration(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8)),
           ),

@@ -14,7 +14,7 @@ class Registration extends StatefulWidget {
   static const routeName = '/registration';
   final String klinik;
 
-  Registration({Key? key, required this.klinik}) : super(key: key);
+  const Registration({Key? key, required this.klinik}) : super(key: key);
 
   @override
   _RegistrationState createState() => _RegistrationState();

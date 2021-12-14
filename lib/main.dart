@@ -52,15 +52,15 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             home: AnimatedSplashScreen(
               splash: Image.asset('assets/images/logo_vacare.png'),
-              nextScreen: isFirstLaunch != 0 ? OnBoardingPage() : MainPage(),
+              nextScreen: isFirstLaunch != 0 ? const OnBoardingPage() : const MainPage(),
               splashTransition: SplashTransition.rotationTransition,
               centered: true,
               duration: 3000,
             ),
             theme: provider.themeData,
             routes: {
-              MainPage.routeName: (context) => MainPage(),
-              ArticlePage.routeName: (context) => ArticlePage(),
+              MainPage.routeName: (context) => const MainPage(),
+              ArticlePage.routeName: (context) => const ArticlePage(),
               ArticleDetailPage.routeName: (context) => ArticleDetailPage(
                     article:
                         ModalRoute.of(context)?.settings.arguments as Article,
@@ -77,8 +77,9 @@ class MyApp extends StatelessWidget {
                         ModalRoute.of(context)?.settings.arguments as Vaccine,
                   ),
               Registration.routeName: (context) => Registration(
-                klinik: ModalRoute.of(context)?.settings.arguments as String,
-              ),
+                    klinik:
+                        ModalRoute.of(context)?.settings.arguments as String,
+                  ),
             },
           );
         },

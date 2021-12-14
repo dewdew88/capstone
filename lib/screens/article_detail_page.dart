@@ -8,7 +8,7 @@ class ArticleDetailPage extends StatelessWidget {
 
   final Article article;
 
-  const ArticleDetailPage({required this.article});
+  const ArticleDetailPage({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,11 @@ class ArticleDetailPage extends StatelessWidget {
                     child: Image.network(article.urlToImage),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: CircleAvatar(
                       child: IconButton(
                         icon:
-                            Icon(Icons.arrow_back_rounded, color: primaryColor),
+                            const Icon(Icons.arrow_back_rounded, color: primaryColor),
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -48,7 +48,7 @@ class ArticleDetailPage extends StatelessWidget {
 
   Widget _buildDetails(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -57,8 +57,8 @@ class ArticleDetailPage extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           Row(children: [
-            Padding(
-              padding: const EdgeInsets.all(2),
+            const Padding(
+              padding: EdgeInsets.all(2),
               child: Icon(
                 Icons.person_rounded,
                 color: secondaryColor,
@@ -71,8 +71,8 @@ class ArticleDetailPage extends StatelessWidget {
             ),
           ]),
           Row(children: [
-            Padding(
-              padding: const EdgeInsets.all(2),
+            const Padding(
+              padding: EdgeInsets.all(2),
               child: Icon(
                 Icons.date_range,
                 color: secondaryColor,
@@ -84,20 +84,20 @@ class ArticleDetailPage extends StatelessWidget {
               style: Theme.of(context).textTheme.caption,
             ),
           ]),
-          Divider(color: Colors.grey),
+          const Divider(color: Colors.grey),
           Text(
             article.content,
             textAlign: TextAlign.justify,
             style: Theme.of(context).textTheme.bodyText2,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, ArticleWebView.routeName,
                     arguments: article.url);
               },
-              child: Text('Lihat Selengkapnya'),
+              child: const Text('Lihat Selengkapnya'),
             ),
           ),
         ],

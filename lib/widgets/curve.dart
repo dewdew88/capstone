@@ -37,13 +37,13 @@ class VaccinationCurve extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
 
               child: Card(
-                child: Container(
+                child: SizedBox(
                   height: MediaQuery.of(context).size.width * 0.95 * 0.75,
                   child: Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Column(
                       children: [
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         Expanded(
                           flex: 6,
                           child: LineChart(

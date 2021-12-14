@@ -43,7 +43,7 @@ final List<Help> benefitVaccine = [
     title: 'Apakah vaksin COVID-19 itu dipastikan aman ?',
     description: '''
 • Vaksin yang diproduksi massal sudah melewati proses yang panjang dan harus memenuhi syarat utama yakni: Aman, Ampuh, Stabil dan Efisien dari segi biaya. 
-• Aspek keamanan vaksin dipastikan melalui beberapa tahapan uji klinis yang benar dan menjunjung tinggi kaidah ilmu pengetahuan, sains dan standar-standar kesehatan.\Intinya, pemerintah tidak tergesa-gesa dalam pelaksanaan vaksinasi, dan tetap mengedepankan aspek keamanan dan manfaat atau keampuhan vaksin. 
+• Aspek keamanan vaksin dipastikan melalui beberapa tahapan uji klinis yang benar dan menjunjung tinggi kaidah ilmu pengetahuan, sains dan standar-standar kesehatan.\nIntinya, pemerintah tidak tergesa-gesa dalam pelaksanaan vaksinasi, dan tetap mengedepankan aspek keamanan dan manfaat atau keampuhan vaksin. 
 • Pemerintah hanya menyediakan vaksin Covid-19 yang terbukti aman dan lolos uji klinis, serta sudah mendapatkan Emergency Use of Authorization (EUA) dari BPOM.''',
   ),
   Help(

@@ -4,20 +4,21 @@ import 'package:capstone/provider/preferences_provider.dart';
 import 'package:capstone/screens/help_page.dart';
 import 'package:capstone/screens/vaccination_requirements_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Material(
         child: ListView(
           children: [
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             ListTile(
-              leading: Icon(Icons.medical_services),
-              title: Text('Ketentuan Vaksin'),
+              leading: const Icon(Icons.medical_services),
+              title: const Text('Ketentuan Vaksin'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -27,8 +28,8 @@ class NavigationDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.brightness_6_rounded),
-              title: Text('Mode Gelap'),
+              leading: const Icon(Icons.brightness_6_rounded),
+              title: const Text('Mode Gelap'),
               trailing: Consumer<PreferencesProvider>(
                 builder: (context, provider, child) {
                   return Switch.adaptive(
@@ -41,22 +42,22 @@ class NavigationDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.info_rounded),
-              title: Text(
+              leading: const Icon(Icons.info_rounded),
+              title: const Text(
                 'Bantuan',
               ),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => HelpPage(),
+                    builder: (context) => const HelpPage(),
                   ),
                 );
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Keluar'),
+              leading: const Icon(Icons.logout),
+              title: const Text('Keluar'),
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
