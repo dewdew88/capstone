@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 decoration: const BoxDecoration(
-                    color: Colors.white38
+                    color: Colors.transparent,
                 ),
                 clipBehavior: Clip.hardEdge,
                 //height: 190,
