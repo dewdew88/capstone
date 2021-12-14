@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/vaccine.dart';
-import 'package:capstone/provider/response_state.dart';
 import 'package:capstone/screens/vaccine_detail_page.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +20,7 @@ class _VaccinePageState extends State<VaccinePage> {
   final _searchController = TextEditingController();
   List<Vaccine> _searchResult = [];
 
-  Map source = {ConnectivityResult.values : false};
+  Map source = {ConnectivityResult.values: false};
   final _controller = StreamController.broadcast();
 
   void initialise() async {
@@ -65,7 +64,8 @@ class _VaccinePageState extends State<VaccinePage> {
         widget = _buildFutureBuilder(context);
         break;
       case ConnectivityResult.none:
-        widget = const Center(child: Text('Silahkan periksa kembali koneksi internet Anda'));
+        widget = const Center(
+            child: Text('Silahkan periksa kembali koneksi internet Anda'));
         break;
       default:
         widget = const Center(child: CircularProgressIndicator());
@@ -83,17 +83,17 @@ class _VaccinePageState extends State<VaccinePage> {
 
   FutureBuilder<String> _buildFutureBuilder(BuildContext context) {
     return FutureBuilder<String>(
-      future:
-          DefaultAssetBundle.of(context).loadString('assets/vaccine.json'),
+      future: DefaultAssetBundle.of(context).loadString('assets/vaccine.json'),
       builder: (context, snapshot) {
-        final List<Vaccine> listVaccineLocation =
-            parsedVaccine(snapshot.data);
+        final List<Vaccine> listVaccineLocation = parsedVaccine(snapshot.data);
         if (!snapshot.hasData) {
           return const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
           return Column(
             children: [
               Card(
+                margin: const EdgeInsets.only(
+                    right: 16, left: 16, top: 6, bottom: 6),
                 child: ListTile(
                   leading: const Icon(Icons.search),
                   trailing: IconButton(

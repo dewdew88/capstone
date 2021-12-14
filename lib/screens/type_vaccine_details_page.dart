@@ -29,7 +29,10 @@ class TypeVaccineDetails extends StatelessWidget {
                       child: CircleAvatar(
                         backgroundColor: secondaryColor,
                         child: IconButton(
-                          icon: const Icon(Icons.arrow_back_rounded),
+                          icon: const Icon(
+                            Icons.arrow_back_rounded,
+                            color: primaryColor,
+                          ),
                           onPressed: () {
                             Navigator.pop(context);
                           },

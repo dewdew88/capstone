@@ -1,3 +1,4 @@
+import 'package:capstone/common/styles.dart';
 import 'package:capstone/data/models/article.dart';
 import 'package:capstone/data/models/vaccine.dart';
 import 'package:capstone/data/preferences/preferences_helper.dart';
@@ -15,6 +16,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:capstone/widgets/article_web_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'data/models/type_vaccine.dart';
@@ -25,6 +27,9 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isFirstLaunch = prefs.getInt('onBoard');
   await Firebase.initializeApp();
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: darkPrimaryColor,
+  ));
   runApp(const MyApp());
 }
 
