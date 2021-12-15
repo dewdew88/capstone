@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:capstone/common/styles.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -76,7 +76,7 @@ class _RegistrationState extends State<Registration> {
     initialize();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pendaftaran Vaksinasi'),
+        title: const Text('Pendaftaran Vaksinasi', style: TextStyle(fontWeight: FontWeight.bold),),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -268,8 +268,9 @@ class _RegistrationState extends State<Registration> {
                 Text('Setelah melakukan pendaftaran, Anda akan dihubungi oleh pihak dari Rumah Sakit/Puskesmas/Klinik yang telah dipilih untuk melakukan konfirmasi',
                   textAlign: TextAlign.justify,
                   style: GoogleFonts.poppins(
-                      fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.4, color: secondaryColor),
+                      fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.4, color: Colors.blueAccent),
                 ),
+                const SizedBox(height: 5),
                 Center(
                   child: ElevatedButton(
                     onPressed: () {

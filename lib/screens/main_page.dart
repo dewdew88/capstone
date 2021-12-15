@@ -40,31 +40,43 @@ class _MainPageState extends State<MainPage> {
 
   final List<AppBar> _appBar = [
     AppBar(
-      title: const Text('VaCare'),
+      title: const Text('VaCare',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: const Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),
     ),
     AppBar(
-      title: const Text('Vaccine'),
+      title: const Text('Vaccine',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: const Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),
     ),
     AppBar(
-      title: const Text('Article'),
+      title: const Text('Article',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       leading: Builder(
         builder: (BuildContext context) {
           return IconButton(
-              icon: const Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openDrawer());
         },
       ),

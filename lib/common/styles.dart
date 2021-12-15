@@ -40,11 +40,12 @@ ThemeData lightTheme = ThemeData(
   textTheme: myTextTheme,
   visualDensity: VisualDensity.adaptivePlatformDensity,
   appBarTheme: AppBarTheme(
-    elevation: 0,
+    elevation: 1,
     centerTitle: true,
-    backgroundColor: secondaryColor,
-    toolbarTextStyle: myTextTheme.apply(bodyColor: primaryColor).bodyText2,
-    titleTextStyle: myTextTheme.apply(bodyColor: primaryColor).headline6,
+    backgroundColor: Colors.white,
+    iconTheme: const IconThemeData(color: secondaryColor),
+    toolbarTextStyle: myTextTheme.apply(bodyColor: secondaryColor).bodyText2,
+    titleTextStyle: myTextTheme.apply(bodyColor: secondaryColor).headline6,
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: secondaryColor,
@@ -76,7 +77,7 @@ ThemeData darkTheme = ThemeData.dark().copyWith(
   visualDensity: VisualDensity.adaptivePlatformDensity,
   textTheme: myTextTheme,
   appBarTheme: AppBarTheme(
-      elevation: 0,
+      elevation: 1,
       centerTitle: true,
       backgroundColor: darkPrimaryColor,
       toolbarTextStyle: myTextTheme.apply(bodyColor: primaryColor).bodyText2,
