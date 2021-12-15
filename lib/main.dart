@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<PreferencesProvider>(
         builder: (context, provider, child) {
           return MaterialApp(
+            title: 'VaCare',
             debugShowCheckedModeBanner: false,
             home: AnimatedSplashScreen(
               splash: Image.asset('assets/images/logo_vacare.png'),
