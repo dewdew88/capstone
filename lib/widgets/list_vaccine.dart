@@ -28,8 +28,8 @@ class ListVaccine extends StatelessWidget {
                     child: Hero(
                       tag: vaccine.pictureUrl,
                       child: ClipRRect(
-                        child: Image.network(
-                          vaccine.pictureUrl,
+                        child: Image.asset(
+                          'assets/images/vaccine.jpg',
                           width: 40,
                           height: 30,
                           fit: BoxFit.cover,

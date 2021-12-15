@@ -26,7 +26,7 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isFirstLaunch = prefs.getInt('onBoard');
   await Firebase.initializeApp();
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: darkPrimaryColor,
   ));
   runApp(const MyApp());

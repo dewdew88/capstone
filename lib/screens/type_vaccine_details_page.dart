@@ -21,7 +21,7 @@ class TypeVaccineDetails extends StatelessWidget {
                 children: [
                   Hero(
                     tag: vaccine.pictureUrl,
-                    child: Image.network(vaccine.pictureUrl),
+                    child: Image.asset('assets/images/vaccine.jpg'),
                   ),
                   SafeArea(
                     child: Padding(
