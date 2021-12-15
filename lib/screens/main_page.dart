@@ -1,4 +1,3 @@
-import 'package:capstone/common/styles.dart';
 import 'package:capstone/screens/article_page.dart';
 import 'package:capstone/screens/home_page.dart';
 import 'package:capstone/screens/vaccines_page.dart';

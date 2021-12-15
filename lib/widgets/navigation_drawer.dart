@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:capstone/common/styles.dart';
 import 'package:capstone/provider/preferences_provider.dart';
 import 'package:capstone/screens/help_page.dart';
 import 'package:capstone/screens/vaccination_requirements_page.dart';

@@ -5,26 +5,26 @@ class PreferencesHelper {
 
   PreferencesHelper({required this.sharedPreferences});
 
-  static const DARK_THEME = 'DARK_THEME';
-  static const LIGHT_THEME = 'LIGHT_THEME';
+  static const darkTheme = 'DARK_THEME';
+  static const lightTheme = 'LIGHT_THEME';
 
   Future<bool> get isDarkTheme async{
     final prefs = await sharedPreferences;
-    return prefs.getBool(DARK_THEME) ?? false;
+    return prefs.getBool(darkTheme) ?? false;
   }
 
   void setDarkTheme(bool value) async {
     final prefs = await sharedPreferences;
-    prefs.setBool(DARK_THEME, value);
+    prefs.setBool(darkTheme, value);
   }
 
   Future<bool> get isLightTheme async{
     final prefs = await sharedPreferences;
-    return prefs.getBool(LIGHT_THEME) ?? false;
+    return prefs.getBool(lightTheme) ?? false;
   }
 
   void setLightTheme(bool value) async {
     final prefs = await sharedPreferences;
-    prefs.setBool(LIGHT_THEME, value);
+    prefs.setBool(lightTheme, value);
   }
 }
