@@ -5,6 +5,7 @@ const Color primaryColor = Color(0xFFFFFFFF);
 const Color secondaryColor = Color(0xFF1837AB);
 const Color mTextColor = Color(0xFF3F3D56);
 const Color darkPrimaryColor = Color(0xFF000000);
+const Color darkSecondaryColor = Color(0xFF303030);
 const Color lightGreyColor = Color(0xFFEBEDF5);
 
 final TextTheme myTextTheme = TextTheme(
@@ -75,14 +76,16 @@ ThemeData lightTheme = ThemeData(
 ThemeData darkTheme = ThemeData.dark().copyWith(
   primaryColor: darkPrimaryColor,
   visualDensity: VisualDensity.adaptivePlatformDensity,
+  scaffoldBackgroundColor: darkSecondaryColor,
   textTheme: myTextTheme,
   appBarTheme: AppBarTheme(
       elevation: 1,
       centerTitle: true,
-      backgroundColor: darkPrimaryColor,
+      backgroundColor: darkSecondaryColor,
       toolbarTextStyle: myTextTheme.apply(bodyColor: primaryColor).bodyText2,
       titleTextStyle: myTextTheme.apply(bodyColor: primaryColor).headline6),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    backgroundColor: darkPrimaryColor,
     selectedItemColor: primaryColor,
     unselectedItemColor: Color(0xFFBBBDD1),
   ),
