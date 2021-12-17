@@ -65,9 +65,11 @@ class ArticleDetailPage extends StatelessWidget {
                 size: 20,
               ),
             ),
-            Text(
-              article.author,
-              style: Theme.of(context).textTheme.caption,
+            Flexible(
+              child: Text(
+                article.author,
+                style: Theme.of(context).textTheme.caption,
+              ),
             ),
           ]),
           Row(children: [
