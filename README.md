@@ -1,16 +1,18 @@
-# capstone
+# VaCare Application
 
-A new Flutter project.
+Aplikasi VaCare (Vaccine Care) merupakan aplikasi yang dibangun guna melengkapi syarat
+kelulusan program Studi Independen Bersertiffikat Kampus Merdeka di Dicoding Academy.
 
-## Getting Started
+Aplikasi ini bertujuan agar dapat memudahkan pengguna untuk mendapatkan informasi mengenai vaksinasi
+COVID-19 di Indonesia seperti informasi mengenai jenis-jenis vaksin, informasi mengenai data jumlah
+orang yang telah melakukan vaksinasi di Indonesia, informasi mengenai artikel atau berita tentang
+vaksinasi COVID-19 di Indonesia, informasi mengenai lokasi-lokasi penyedia layanan vaksinasi di
+Indonesia, dan juga dapat melakukan pendaftaran vaksinasi sesuai dengan tempat vaksinasi yang dipilih
+oleh pengguna (user).
 
-This project is a starting point for a Flutter application.
+Berikut langkah-langkah penggunaan aplikasi VaCare:
+[Demo aplikasi](https://youtu.be/_OVDlu6m7hY)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Tim CSD-135 :
+- P195V4152 - Dewi Candani Sulaiman
+- P009v7028 - Rahmadilla Salsabila Mahdison
