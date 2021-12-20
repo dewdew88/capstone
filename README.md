@@ -1,7 +1,7 @@
 # VaCare Application
 
 Aplikasi VaCare (Vaccine Care) merupakan aplikasi yang dibangun guna melengkapi syarat
-kelulusan program Studi Independen Bersertiffikat Kampus Merdeka di Dicoding Academy.
+kelulusan program Studi Independen Bersertifikat Kampus Merdeka di Dicoding Academy.
 
 Aplikasi ini bertujuan agar dapat memudahkan pengguna untuk mendapatkan informasi mengenai vaksinasi
 COVID-19 di Indonesia seperti informasi mengenai jenis-jenis vaksin, informasi mengenai data jumlah
