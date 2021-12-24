@@ -13,6 +13,9 @@ oleh pengguna (user).
 Berikut langkah-langkah penggunaan aplikasi VaCare:
 [Demo aplikasi](https://youtu.be/_OVDlu6m7hY)
 
+Berikut dokumentasi aplikasi VaCare:
+[Dokumentasi](https://drive.google.com/drive/folders/1555T1PXyPNLP6rv1k5zTyZ-PaZ6W5mAJ?usp=sharing)
+
 Tim CSD-135 :
 - P195V4152 - Dewi Candani Sulaiman
 - P009v7028 - Rahmadilla Salsabila Mahdison
